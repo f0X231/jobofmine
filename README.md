@@ -63,3 +63,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Reference
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
+
+
+## Start command 
+1. docker-compose up -d
+2. docker exec -it app bash
+3. php artisan route:clear
+4. php artisan key:generate
+5. php artisan config:cache
