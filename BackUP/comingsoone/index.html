@@ -3,7 +3,8 @@
     <head>
         <title>Joy Of Mind: under construction</title>
         <style>
-            body, html {
+            body,
+            html {
                 height: 100%;
                 margin: 0;
                 padding: 0;
@@ -23,11 +24,20 @@
 
                 cursor: pointer;
             }
+            @media only screen and (max-width: 640px) {
+                .bg {
+                    background-image: url("joy-of-mind-bg-mobile.jpg");
+                }
+            }
         </style>
     </head>
 
     <body>
-        <div class="bg" onclick="window.open('https://www.facebook.com/Joyofminds/','mywindow');">&nbsp;</div>
+        <div
+            class="bg"
+            onclick="window.open('https://www.facebook.com/Joyofminds/','mywindow');"
+        >
+            &nbsp;
+        </div>
     </body>
 </html>
-
