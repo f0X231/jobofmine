@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+//Route::resource('contact', 'ContactController')->middleware('auth');
+
+/* fontend Route */
+Route::get('/', [HomeController::class, 'index']);
+Route::get('home', [HomeController::class, 'index']);

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "db_heavent";
+    src: url("../font/db_heavent_v3.2-webfont.eot");
+    src: url("../font/db_heavent_v3.2-webfont.eot?#iefix")
+            format("embedded-opentype"),
+        url("../font/db_heavent_v3.2-webfont.woff2") format("woff2"),
+        url("../font/db_heavent_v3.2-webfont.woff") format("woff"),
+        url("../font/db_heavent_v3.2-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "db_heaventmed";
+    src: url("../font/db_heavent_med_v3.2-webfont.eot");
+    src: url("../font/db_heavent_med_v3.2-webfont.eot?#iefix")
+            format("embedded-opentype"),
+        url("../font/db_heavent_med_v3.2-webfont.woff2") format("woff2"),
+        url("../font/db_heavent_med_v3.2-webfont.woff") format("woff"),
+        url("../font/db_heavent_med_v3.2-webfont.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "db_heavent";
+    src: url("../font/db_heavent_bd_v3.2-webfont.eot");
+    src: url("../font/db_heavent_bd_v3.2-webfont.eot?#iefix")
+            format("embedded-opentype"),
+        url("../font/db_heavent_bd_v3.2-webfont.woff2") format("woff2"),
+        url("../font/db_heavent_bd_v3.2-webfont.woff") format("woff"),
+        url("../font/db_heavent_bd_v3.2-webfont.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "db_heaventblack";
+    src: url("../font/db_heavent_blk_v3.2-webfont.eot");
+    src: url("../font/db_heavent_blk_v3.2-webfont.eot?#iefix")
+            format("embedded-opentype"),
+        url("../font/db_heavent_blk_v3.2-webfont.woff2") format("woff2"),
+        url("../font/db_heavent_blk_v3.2-webfont.woff") format("woff"),
+        url("../font/db_heavent_blk_v3.2-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
