@@ -19,6 +19,12 @@ use App\Http\Controllers\HomeController;
 });*/
 //Route::resource('contact', 'ContactController')->middleware('auth');
 
+/* Change language */
+Route::get('lang/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
 /* fontend Route */
 Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index']);
