@@ -20,10 +20,13 @@ use App\Http\Controllers\HomeController;
 //Route::resource('contact', 'ContactController')->middleware('auth');
 
 /* Change language */
-Route::get('lang/{locale}', function ($locale) {
+if(file_exists(app_path('Http/Controllers/LocalizationController.php')))
+    Route::get('lang{locale}', 'LocalizationController@lang');
+/*Route::get('lang/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
-});
+});*/
+
 
 /* fontend Route */
 Route::get('/', [HomeController::class, 'index']);
