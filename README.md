@@ -68,6 +68,9 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and
 ## Start command 
 1. docker-compose up -d
 2. docker exec -it app bash
-3. php artisan route:clear
+3.  php artisan cache:clear
+    php artisan config:clear
+    php artisan cache:clear
+    php artisan route:clear
 4. php artisan key:generate
 5. php artisan config:cache
