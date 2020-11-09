@@ -21,7 +21,7 @@ use App\Http\Controllers\HomeController;
 
 /* Change language */
 if(file_exists(app_path('Http/Controllers/LocalizationController.php')))
-    Route::get('lang{locale}', 'LocalizationController@lang');
+    Route::get('lang/{locale}', 'LocalizationController@lang');
 /*Route::get('lang/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();

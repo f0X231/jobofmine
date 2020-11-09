@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{$seo['title']}}</title>
+<title>aaa {{-- $seo['title'] --}}</title>
 <meta name="robots" content="noindex, nofollow">
 <!--meta name="robots" content="index, follow"-->
 
-
 <!-- Meta tags SEO -->
-<meta name="description" content="{{$seo['description']}}"> <!-- Maximum 300 characters -->
-<meta name="keywords" content="{{$seo['keyword']}}">
+<meta name="description" content="{{-- $seo['description'] --}}" /> <!-- Maximum 300 characters -->
+<meta name="keywords" content="{{-- $seo['keyword'] --}}" />
+
 <!-- Open Graph data -->
 <meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
 <meta property="og:type" content="article" />
