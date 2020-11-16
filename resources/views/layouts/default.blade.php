@@ -5,19 +5,10 @@
 </head>
 
 <body>
-
-<div class="container">
-   <header class="row">
-       @include('includes.header')
-   </header>
-
-   <div id="main" class="row">
-           @yield('content')
-   </div>
-
-   <footer class="row">
-       @include('includes.footer')
-   </footer>
-</div>
+    @include('includes.header')
+    <div id="wrapper"> 
+        @yield('content')
+    </div>
+    @include('includes.footer')
 </body>
 </html>
