@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +37,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index']);
 Route::get('aboutus', [AboutusController::class, 'index']);
 Route::get('doctor', [DoctorController::class, 'index']);
-Route::get('doctor/detail', [DoctorController::class, 'detail']);
+Route::get('doctor/{id}/{name}', [DoctorController::class, 'profile']);
 Route::get('services', [ServiceController::class, 'index']);
-Route::get('services/detail', [ServiceController::class, 'detail']);
+Route::get('services/{id}/{name}', [ServiceController::class, 'detail']);
 Route::get('articles', [ArticleController::class, 'index']);
-Route::get('articles/detail', [ArticleController::class, 'detail']);
+Route::get('articles/{id}/{name}', [ArticleController::class, 'detail']);

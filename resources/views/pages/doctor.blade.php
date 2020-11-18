@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12 doctor__main">
-            <h1>{{ __('doctor.doctor_title') }}</h1>
-            <p>{{ __('doctor.doctor_detail') }}</p>
+            <h1>aaaa</h1>
+            <p>bbbb</p>
         </div>
     </div>
 

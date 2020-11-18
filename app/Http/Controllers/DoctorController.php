@@ -10,4 +10,9 @@ class DoctorController extends Controller
     {
         return view('pages.doctor');
     }
+
+    public function profile($id, $name)
+    {
+        return view('pages.doctorProfile');
+    }
 }
