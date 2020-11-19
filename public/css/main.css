@@ -35,9 +35,6 @@ small {
 .color__primary {
     color: #5dc9c9;
 }
-.wrapper {
-    min-height: 100vh;
-}
 
 /* Header Nav bar */
 .logo {
@@ -203,6 +200,13 @@ small {
 .txt-phonnumber-mobile {
     color: #ffffff;
     font-size: 1rem;
+}
+
+/* Content */
+#wrapper {
+    margin-top: 150px;
+    background-color: #008080;
+    min-height: 100vh;
 }
 
 /* Footer */

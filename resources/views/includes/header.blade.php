@@ -65,22 +65,22 @@
 	  	<div class="collapse navbar-collapse" id="navbarTogglerMainMenu">
 	    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+	        		<a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">About us</a>
+	        		<a class="nav-link" href="/aboutus">About us</a>
+				</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="/articles">Articles</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Doctor</a>
+	        		<a class="nav-link" href="/doctor">Doctor</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Services</a>
+	        		<a class="nav-link" href="/services">Services</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Articles</a>
-	      		</li>
-	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Contact</a>
+	        		<a class="nav-link" href="/">Contact</a>
 	      		</li>
 	    	</ul>
 	    	<form class="form-inline my-2 my-lg-0">
