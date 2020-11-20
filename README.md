@@ -91,15 +91,29 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and
 - https://codepen.io/desandro/pen/emjrBm
 
 
+article
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_01.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_01.jpg";}
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_02.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_02.jpg";}
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_03.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_03.jpg";}
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_04.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_04.jpg";}
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_05.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_05.jpg";}
+a:2:{s:2:"th";s:40:"/images/article/thumbnail/article_06.jpg";s:2:"en";s:40:"/images/article/thumbnail/article_06.jpg";}
+doctor - thumbnail
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_01.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_01.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_02.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_02.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_03.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_03.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_04.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_04.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_05.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_05.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_06.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_06.jpg";}
+a:2:{s:2:"th";s:38:"/images/doctor/thumbnail/doctor_07.jpg";s:2:"en";s:38:"/images/doctor/thumbnail/doctor_07.jpg";}
+doctor - picture
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_01.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_01.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_02.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_02.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_03.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_03.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_04.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_04.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_05.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_05.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_06.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_06.jpg";}
+a:2:{s:2:"th";s:36:"/images/doctor/picture/doctor_07.jpg";s:2:"en";s:36:"/images/doctor/picture/doctor_07.jpg";}
 
-    <!-- Content -->
-    <div class="row">
-        <div class="col-12 doctor__main">
-            <h1>{{$data['title']['th']}}</h1>
-            <p>{{$data['description']['th']}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6 col-12">Detail : {{$data['detail']['th']}}</div>
-        <div class="col-sm-6 col-12">Picture</div>
-    </div>
+
+
