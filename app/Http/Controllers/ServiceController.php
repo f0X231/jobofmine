@@ -31,7 +31,7 @@ class ServiceController extends Controller
 
     public function detail($id, $name)
     {
-        $data = array();
+        /*$data = array();
         $result = Services::where('id', $id)->get();
         foreach($result as $key => $item) {
             $data[$key]['id']           = $item->id;
@@ -41,7 +41,8 @@ class ServiceController extends Controller
             $data[$key]['banner']       = unserialize($item->banner);
         }
 
-        return view('pages.serviceDetail', ['data' => $data[0]]);
+        return view('pages.serviceDetail', ['data' => $data[0]]);*/
+        return view('pages.serviceDetail');
     }
 
     private function make_slug($string) {

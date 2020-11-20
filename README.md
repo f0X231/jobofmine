@@ -85,3 +85,21 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and
 ├── npm@7.0.10
 ├── react-native@0.63.3
 └── react@16.13.1
+
+- https://frontendscript.com/pure-css-slider-with-buttons/
+- https://codepen.io/Schepp/pen/WNbQByE
+- https://codepen.io/desandro/pen/emjrBm
+
+
+
+    <!-- Content -->
+    <div class="row">
+        <div class="col-12 doctor__main">
+            <h1>{{$data['title']['th']}}</h1>
+            <p>{{$data['description']['th']}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-12">Detail : {{$data['detail']['th']}}</div>
+        <div class="col-sm-6 col-12">Picture</div>
+    </div>
