@@ -64,13 +64,24 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
 
+## Start command
 
-## Start command 
 1. docker-compose up -d
 2. docker exec -it app bash
-3.  php artisan cache:clear
-    php artisan config:clear
-    php artisan cache:clear
-    php artisan route:clear
+3. php artisan cache:clear
+   php artisan config:clear
+   php artisan cache:clear
+   php artisan route:clear
 4. php artisan key:generate
 5. php artisan config:cache
+
+/usr/local/lib
+├── @vue/cli-service-global@4.5.8
+├── cross-env@7.0.2
+├── express-generator@4.16.1
+├── firebase-tools@8.16.1
+├── gatsby-cli@2.13.0
+├── grunt-cli@1.3.2
+├── npm@7.0.10
+├── react-native@0.63.3
+└── react@16.13.1
