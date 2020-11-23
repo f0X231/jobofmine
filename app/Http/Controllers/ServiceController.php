@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Services as Services;
+use App\Models\Gallery as Gallery;
 
 class ServiceController extends Controller
 {
@@ -31,18 +32,30 @@ class ServiceController extends Controller
 
     public function detail($id, $name)
     {
-        /*$data = array();
+        $data = array();
         $result = Services::where('id', $id)->get();
         foreach($result as $key => $item) {
             $data[$key]['id']           = $item->id;
             $data[$key]['title']        = unserialize($item->title);
-            $data[$key]['description']  = unserialize($item->description);
+            $description                = unserialize($item->description);
+            $data[$key]['description']['th']    =  html_entity_decode($description['th']);
+            $data[$key]['description']['en']    =  html_entity_decode($description['en']);
             $data[$key]['detail']       = unserialize($item->detail);
             $data[$key]['banner']       = unserialize($item->banner);
         }
-
-        return view('pages.serviceDetail', ['data' => $data[0]]);*/
-        return view('pages.serviceDetail');
+        
+        $gallery = array();
+        $result = Gallery::where([['page', '=', 'services'], ['page_id', '=', $id]])
+                            ->orderBy('order_no', 'ASC')
+                            ->get();
+        foreach($result as $key => $item) {
+            $gallery[$key]['id']            = $item->id;
+            $gallery[$key]['image']         = '/images/gallery/'.$item->picture;
+            $gallery[$key]['description']   = $item->description;
+        }
+        
+        return view('pages.serviceDetail', [    'data'      => $data[0], 
+                                                'gallery'   => $gallery     ]);
     }
 
     private function make_slug($string) {

@@ -10,7 +10,9 @@ class DoctorController extends Controller
     public function index()
     {
         $data = array();
-        $results = Doctors::orderBy('order_no', 'asc')->get();
+        $results = Doctors::where([['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
         foreach($results as $key => $person) {
             $name       = unserialize($person->name);
             $slugTH     = $this->make_slug($name['th']);
@@ -18,7 +20,7 @@ class DoctorController extends Controller
 
             $data[$key]['id']           = $person->id;
             $data[$key]['title']        = $name;
-            $data[$key]['thumbnail']    = unserialize($person->thumbnail);
+            $data[$key]['thumbnail']    = $person->thumbnail;
             $data[$key]['slug']         = array(
                                                 'th'    => 'doctor/'.$person->id.'/'.$slugTH,
                                                 'en'    => 'doctor/'.$person->id.'/'.$slugEN,
@@ -42,7 +44,7 @@ class DoctorController extends Controller
             $data[$key]['work']         = unserialize($person->work);
             $data[$key]['research']     = unserialize($person->research);
             $data[$key]['extended']     = unserialize($person->extended);
-            $data[$key]['picture']      = unserialize($person->picture);
+            $data[$key]['picture']      = $person->picture;
         }
 
         return view('pages.doctorProfile', ['data' => $data[0]]);

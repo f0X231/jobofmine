@@ -1,39 +1,40 @@
 <header class="header fixed-top">
     <div class="row">
-		<div class="col-12 col-sm-6">
-			<a href="#"><img src="{{ asset('images/logo.svg') }}" class="logo" /></a>
-		</div>
+		<div class="col-12 col-sm-6"><a href="/home"><img src="{{ asset('images/logo.svg') }}" class="logo" /></a></div>
 		<div class="col-12 col-sm-6 text-right d-none d-sm-none d-md-block">
-			<ul class="list-unstyled color__black">
-				<li class="d-inline-block text-center dropdown">
-					<button class="btn dropdown-toggle slanguage-show-desktop" type="button" data-toggle="dropdown">
-                        <img src="{{ asset('images/ico_flags_th.svg') }}" width="32" height="32" /> {{ __('default.nav_lang_thai') }}
-					<span class="caret"></span></button>
-					<!--ul class="slanguage dropdown-menu">
-                        <li>
-                            <a href="{{ URL::to('lang/th') }}">
-                                <img src="{{ asset('images/ico_flags_th.svg') }}" width="32" height="32" /> {{ __('default.nav_lang_thai') }}
-                            </a>
-                        </li>
-						<li>
-                            <a href="{{ URL::to('lang/en') }}">
-                                <img src="{{ asset('images/ico_flags_en.svg') }}" width="32" height="32" /> {{ __('default.nav_lang_eng') }}
-                            </a>
-                        </li>
-					</ul-->
-				</li>
-				<li class="d-inline-block text-center">
-					<div class="">
-						<a href="">
-                            <img src="{{ asset('images/ico_phone.svg') }}" width="32" height="32" />
-                        </a>
-                        <label class="">
-                            <a href="" class="font--color-special">{{ __('default.nav_phone_number')}}</a>
-                        </label>
+			<div class="row">
+				<div class="col-6 text-right">
+					<div class="d-inline-block text-center dropdown">
+						<button class="btn dropdown-toggle" 
+								type="button" 
+								id="dropdownMenuButton" 
+								data-toggle="dropdown" 
+								aria-haspopup="true" 
+								aria-expanded="false">
+							<img src="{{ asset('images/ico_flags_th.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_thai') }}
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="{{ URL::to('lang/th') }}">
+								<img src="{{ asset('images/ico_flags_th.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_thai') }}
+							</a>
+							<a class="dropdown-item" href="{{ URL::to('lang/en') }}">
+								<img src="{{ asset('images/ico_flags_en.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_eng') }}
+							</a>
+						</div>
 					</div>
-                    <div><small>{{ __('default.nav_slug') }}</small></div>
-				</li>
-			</ul>
+				</div>
+				<div class="col-2 text-center">
+					<a href=""><img src="{{ asset('images/ico_phone.svg') }}" class="header_ico_navbar" /></a>
+				</div>
+				<div class="col-4 text-center">
+					<a href="">
+						<div class="navbar__phone">
+							<strong class="navbar__phone__number">{{ __('default.nav_phone_number')}}</strong>
+							<p class="navbar__phone__txt">{{ __('default.nav_slug') }}</p>
+						</div>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
