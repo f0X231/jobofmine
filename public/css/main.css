@@ -9,6 +9,8 @@ body {
 }
 header {
     width: 100%;
+    background-color: white;
+    overflow: hidden;
 }
 
 /**** All ****/
@@ -40,29 +42,51 @@ small {
 .line__1height {
     line-height: 1;
 }
+.clearfix {
+    content: "";
+    clear: both;
+    overflow: hidden;
+}
 
 /**** Header Nav bar ****/
 .logo {
-    margin: 5px;
-    height: 80px;
+    margin: 5px 10px;
+    height: 70px;
     width: auto;
 }
 .header_ico_navbar {
     width: 32px;
     height: 32px;
 }
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 .navbar__phone {
-    margin-top: 50px;
+    line-height: 1;
+}
+.navbar__phone__txt {
+    margin: 0;
 }
 .navbar__phone__number {
     font-size: 2.125rem;
     color: #5dc9c9;
 }
+.nav-item {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 15px;
+}
+.nav-item.active,
+.nav-item:hover {
+    color: black;
+}
+
 
 /*.header {
     z-index: 8;
     margin-bottom: 120px;
-}*/
+}
 .nav__contact__detail_phone {
     padding-top: 10px;
 }
@@ -133,35 +157,30 @@ small {
     color: #fff;
     font-family: "Gotham";
     font-size: 1.125rem;
-}
+}*/
 
 /* NAVBAR ****/
-.ico_logo {
+/*.ico_logo {
     width: 285px;
     height: 80px;
 }
 .navbar-nav {
     font-size: 1.325rem;
     font-weight: bold;
-}
-.nav-item.active,
-.nav-item:hover {
-    background-color: #ff6c0e;
-    color: #fff;
-}
+}*/
 /* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
+/*.sticky {
     position: fixed;
     top: 0;
     width: 100%;
-}
+}*/
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
+/*.sticky + .content {
     padding-top: 102px;
-}
+}*/
 
 /* MENU */
-.navbar-toggle .icon-bar {
+/*.navbar-toggle .icon-bar {
     transition: all 0.2s;
 }
 .navbar-toggle .top-bar {
@@ -218,64 +237,42 @@ small {
 .txt-phonnumber-mobile {
     color: #ffffff;
     font-size: 1rem;
-}
+}*/
 
 /* Content */
 #wrapper {
-    margin-top: 150px;
-    background-color: #008080;
-    min-height: 100vh;
+    margin-top: 130px;
+    overflow: hidden;
+    background-color: white;
+    /*min-height: 100vh;*/
 }
 
 /* Hero Banner on Detail Pages */
-
-@keyframes tonext {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: 100%;
-    }
-    98% {
-        left: 100%;
-    }
-    99% {
-        left: 0;
-    }
+/*@keyframes tonext {
+    75% { left: 0;      }
+    95% { left: 100%;   }
+    98% { left: 100%;   }
+    99% { left: 0;  }
 }
 
 @keyframes tostart {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: -300%;
-    }
-    98% {
-        left: -300%;
-    }
-    99% {
-        left: 0;
-    }
+    75% { left: 0;      }
+    95% { left: -300%;  }
+    98% { left: -300%;  }
+    99% { left: 0;      }
 }
 
 @keyframes snap {
-    96% {
-        scroll-snap-align: center;
-    }
-    97% {
-        scroll-snap-align: none;
-    }
-    99% {
-        scroll-snap-align: none;
-    }
-    100% {
-        scroll-snap-align: center;
-    }
+    96% {   scroll-snap-align: center;  }
+    97% {   scroll-snap-align: none;    }
+    99% {   scroll-snap-align: none;    }
+    100% {  scroll-snap-align: center;  }
 }
-
-ol,
-li {
+.hero_banner {
+    width: 100%;
+}
+.hero_banner ol,
+.hero_banner li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -286,6 +283,7 @@ li {
     padding-top: 75%;
     filter: drop-shadow(0 0 10px #0003);
     perspective: 100px;
+    height: 600px;
 }
 
 .carousel__viewport {
@@ -427,7 +425,7 @@ li {
 
 .carousel::after {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
-}
+}*/
 
 /**** Footer ****/
 footer {

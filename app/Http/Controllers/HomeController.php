@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use View;
 use Illuminate\Http\Request;
+use App\Models\Articles as Articles;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,23 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /*$data = array();
+        $results = Articles::where([['is_home', '=', 'Y'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->get();
+        foreach($results as $key => $items) {
+            $title      = unserialize($items->title);
+            $slugTH     = $this->make_slug($title['th']);
+            $slugEN     = $this->make_slug($title['en']);
+
+            $data[$key]['id']           = $items->id;
+            $data[$key]['title']        = $title;
+            $data[$key]['thumbnail']    = unserialize($items->thumbnail);
+            $data[$key]['slug']         = array(
+                                                'th'    => 'articles/'.$items->id.'/'.$slugTH,
+                                                'en'    => 'articles/'.$items->id.'/'.$slugEN,
+                                            );
+        }*/
+
         return view('pages.home');
     }
 

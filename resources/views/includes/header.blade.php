@@ -2,6 +2,7 @@
     <div class="row">
 		<div class="col-12 col-sm-6"><a href="/home"><img src="{{ asset('images/logo.svg') }}" class="logo" /></a></div>
 		<div class="col-12 col-sm-6 text-right d-none d-sm-none d-md-block">
+			
 			<div class="row">
 				<div class="col-6 text-right">
 					<div class="d-inline-block text-center dropdown">
@@ -23,10 +24,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-2 text-center">
-					<a href=""><img src="{{ asset('images/ico_phone.svg') }}" class="header_ico_navbar" /></a>
+				<div class="col-2 text-right">
+					<a href="">
+						<img src="{{ asset('images/ico_phone.svg') }}" class="header_ico_navbar" />
+					</a>
 				</div>
-				<div class="col-4 text-center">
+				<div class="col-4 text-left">
 					<a href="">
 						<div class="navbar__phone">
 							<strong class="navbar__phone__number">{{ __('default.nav_phone_number')}}</strong>
@@ -35,6 +38,7 @@
 					</a>
 				</div>
 			</div>
+
 		</div>
 	</div>
 
@@ -66,22 +70,34 @@
 	  	<div class="collapse navbar-collapse" id="navbarTogglerMainMenu">
 	    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+	        		<a class="nav-link color__black" href="/">
+						{{ __('default.nav_menu_home') }}
+					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/aboutus">About us</a>
+	        		<a class="nav-link color__black" href="/aboutus">
+						{{ __('default.nav_menu_aboutus') }}
+					</a>
 				</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/articles">Articles</a>
+	        		<a class="nav-link color__black" href="/articles">
+						{{ __('default.nav_menu_articles') }}
+					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/doctor">Doctor</a>
+	        		<a class="nav-link color__black" href="/doctor">
+						{{ __('default.nav_menu_doctor') }}
+					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/services">Services</a>
+	        		<a class="nav-link color__black" href="/services">
+						{{ __('default.nav_menu_services') }}
+					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="/">Contact</a>
+	        		<a class="nav-link color__black" href="/">
+						{{ __('default.nav_menu_contact') }}
+					</a>
 	      		</li>
 	    	</ul>
 	    	<form class="form-inline my-2 my-lg-0">
