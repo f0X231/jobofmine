@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     <div class="row article__main">
         <div class="col-sm-6 col-12">
@@ -18,7 +19,10 @@
     <div class="row">
         @foreach ($data as $item)
             <div class="col-sm-6 col-12">
-                <a href="{{$item['slug']['th']}}">{{$item['title']['th']}}</a>
+                <a href="{{$item['slug']['th']}}">
+                    <img src="{{$item['thumbnail']['th']}}" width="100%" />
+                    <p>{{$item['title']['th']}}</p>
+                </a>
             </div>
         @endforeach
     </div>

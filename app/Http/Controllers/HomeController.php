@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /*$data = array();
+        $data = array();
         $results = Articles::where([['is_home', '=', 'Y'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
                             ->get();
         foreach($results as $key => $items) {
@@ -30,9 +30,9 @@ class HomeController extends Controller
                                                 'th'    => 'articles/'.$items->id.'/'.$slugTH,
                                                 'en'    => 'articles/'.$items->id.'/'.$slugEN,
                                             );
-        }*/
+        }
 
-        return view('pages.home');
+        return view('pages.home', ['article' => $data]);
     }
 
     /**

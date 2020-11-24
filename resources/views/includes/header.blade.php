@@ -79,19 +79,19 @@
 						{{ __('default.nav_menu_aboutus') }}
 					</a>
 				</li>
-	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/articles">
-						{{ __('default.nav_menu_articles') }}
-					</a>
-	      		</li>
+				<li class="nav-item">
+				  <a class="nav-link color__black" href="/services">
+					  {{ __('default.nav_menu_services') }}
+				  </a>
+				</li>
 	      		<li class="nav-item">
 	        		<a class="nav-link color__black" href="/doctor">
 						{{ __('default.nav_menu_doctor') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/services">
-						{{ __('default.nav_menu_services') }}
+	        		<a class="nav-link color__black" href="/articles">
+						{{ __('default.nav_menu_articles') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">

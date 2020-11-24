@@ -2,14 +2,14 @@
   <div class="footer__middle">
     <div class="container">
       <div class="row">
-        <div class="col-md-1 col-sm-4 col-3">
+        <div class="col-md-1 col-sm-4 col-6">
           <!--Column1-->
           <h4 class="footer__middle_title">
             <a href="/home" class="color__white">{{ __('default.footer_header_home') }}</a>
           </h4>
         </div>
 
-        <div class="col-md-2 col-sm-4 col-3">
+        <div class="col-md-2 col-sm-4 col-6">
           <!--Column2-->
           <h4 class="footer__middle_title">
             <a href="/aboutus" class="color__white">{{ __('default.footer_header_aboutus') }}</a>
@@ -50,7 +50,7 @@
           </ul>
         </div>
         <!--Column5-->
-        <div class="col-md-3 col-sm-6 col-6">
+        <div class="col-md-3 col-sm-6 col-12">
           <h4 class="footer__middle_title">
             <a href="/home" class="color__white">{{ __('default.footer_header_contactus') }}</a>
           </h4>
