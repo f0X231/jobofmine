@@ -40,6 +40,9 @@ small {
 .fontSize125rem {
     font-size: 1.25rem;
 }
+.fontSize15rem {
+    font-size: 1.5rem;
+}
 .line__1height {
     line-height: 1;
 }
