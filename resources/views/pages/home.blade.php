@@ -2,34 +2,14 @@
 
 @section('content')
 
-<style>
-.section__info {
-  margin: -80px;
-}
-.section__info__txt {
-  background-color: #008080;
-  height: 350px;
-}
-.home__info {
-  padding: 50px 15px;
-}
-.section__doctor {
-  margin-top: 150px;
-}
-video {
-  width: 100%;
-  max-height: 100%;
-}
-</style>
-
 <div class="hero_banner">
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="First slide">
+        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg?version=231" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="Second slide">
+        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg?version=320" alt="Second slide">
       </div>
     </div>
 
@@ -49,15 +29,18 @@ video {
       <div class="row">
           <div class="col-10 offset-1 section__info__txt">
             <div class="row">
-              <div class="col-sm-4 col-12 home__info color__white">
+              <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
+                <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_estimate') !!}</h3>
                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div>
               </div>   
-              <div class="col-sm-4 col-12 home__info color__white">
+              <div class="col-sm-4 col-12 home__info colorWhite section_info_2">
+                <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_cure') !!}</h3>
                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
               </div>   
-              <div class="col-sm-4 col-12 home__info color__white">
+              <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
+                <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_heal') !!}</h3>
                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
               </div>  
@@ -71,14 +54,31 @@ video {
   <div class="container">
       <div class="row">
         <div class="col-8 offset-2 text-center">
-          <h2>{{ __('home.info_doctor') }}</h2>
-          <p>{{ __('home.info_doctor_detail') }}</p>
+          <h2 class="colorPrimary">{{ __('home.info_doctor') }}</h2>
+          <p class="fontSize125rem">{{ __('home.info_doctor_detail') }}</p>
+        </div>
+        <div class="col-12 text-center">
+          <hr class="section__doctor__hr" >
         </div>
       </div>
     </div>
 </section>
 
-<section>
+<section class="section__article">
+  <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2 text-center">
+          <h2 class="colorPrimary">{{ __('home.info_article') }}</h2>
+          <p class="fontSize125rem">{{ __('home.info_article_detail') }}</p>
+        </div>
+        <div class="col-12 text-center">
+          <hr class="section__doctor__hr" >
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section__vdo">
   <div class="container">
     <div class="row">
       <div class="col-10 offset-1" id="player-overlay">

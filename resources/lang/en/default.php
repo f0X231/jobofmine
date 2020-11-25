@@ -4,6 +4,7 @@ return [
     'nav_lang_thai'             => 'TH',
     'nav_lang_eng'              => 'EN',
     'nav_phone_number'          => '090-959-9304',
+    'nav_phone_number_href'     => 'tel:+6645958888',
     'nav_slug'                  => 'ปรึกษาและสอบถามรายละเอียดเพิ่มเติม',
 
     'nav_menu_home'             => 'Home',
@@ -12,6 +13,7 @@ return [
     'nav_menu_doctor'           => 'Doctor',
     'nav_menu_services'         => 'Services',
     'nav_menu_contact'          => 'contact',
+    'nav_menu_search'           => 'Search',
 
     'footer_header_home'        => 'HOME',
     'footer_header_aboutus'     => 'ABOUT US',

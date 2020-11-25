@@ -1,44 +1,50 @@
 <header class="header fixed-top">
+	<!-- Top Section -->
     <div class="row">
-		<div class="col-12 col-sm-6"><a href="/home"><img src="{{ asset('images/logo.svg') }}" class="logo" /></a></div>
+		<div class="col-12 col-sm-6 navbarLogo">
+			<a href="{{ URL::to('home') }}">
+				<img src="{{ asset('images/logo.svg') }}" class="logo" />
+			</a>
+		</div>
 		<div class="col-12 col-sm-6 text-right d-none d-sm-none d-md-block">
-			
-			<div class="row">
-				<div class="col-6 text-right">
-					<div class="d-inline-block text-center dropdown">
-						<button class="btn dropdown-toggle" 
-								type="button" 
-								id="dropdownMenuButton" 
-								data-toggle="dropdown" 
-								aria-haspopup="true" 
-								aria-expanded="false">
-							<img src="{{ asset('images/ico_flags_th.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_thai') }}
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="{{ URL::to('lang/th') }}">
-								<img src="{{ asset('images/ico_flags_th.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_thai') }}
+			<!-- Language Desktop -->
+			<ul class="ulNoDist colorBlack navbarInfo">
+				<li class="displayInline text-center dropdown navbarInfo__li">
+					<button class="btn dropdown-toggle fontSize125rem" type="button" data-toggle="dropdown">
+						<img src="{{ asset('images/ico_flags_th.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_thai') }}
+						<span class="caret"></span>
+					</button>
+					<ul class="slanguage dropdown-menu">
+						<li>
+							<a href="{{ URL::to('lang/th') }}">
+								<img src="{{ asset('images/ico_flags_th.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_thai') }}
 							</a>
-							<a class="dropdown-item" href="{{ URL::to('lang/en') }}">
-								<img src="{{ asset('images/ico_flags_en.svg') }}" class="header_ico_navbar" /> {{ __('default.nav_lang_eng') }}
+						</li>
+						<li>
+							<a href="{{ URL::to('lang/en') }}">
+								<img src="{{ asset('images/ico_flags_en.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_eng') }}
 							</a>
-						</div>
+						</li>
+					</ul>
+				</li>
+				<li class="displayInline text-left navbarInfo__li">
+					<div class="">
+						<a href="{{ __('default.nav_phone_number_href') }}">
+							<img src="{{ asset('images/ico_phone.svg') }}" class="icoNavbar" />
+						</a>
 					</div>
-				</div>
-				<div class="col-2 text-right">
-					<a href="">
-						<img src="{{ asset('images/ico_phone.svg') }}" class="header_ico_navbar" />
-					</a>
-				</div>
-				<div class="col-4 text-left">
-					<a href="">
-						<div class="navbar__phone">
-							<strong class="navbar__phone__number">{{ __('default.nav_phone_number')}}</strong>
-							<p class="navbar__phone__txt">{{ __('default.nav_slug') }}</p>
-						</div>
-					</a>
-				</div>
-			</div>
-
+				</li>
+				<li class="displayInline text-center navbarInfo__li line__1height">
+					<div class="navbarPhone">
+						<label class="navbarPhoneLabel">
+							<a href="{{ __('default.nav_phone_number_href')}} " class="colorPrimary">
+								{{ __('default.nav_phone_number')}}
+							</a>
+						</label>
+					</div>
+					<div class="navbarTxt">{{ __('default.nav_slug') }}</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 
@@ -54,54 +60,73 @@
 	    	<span class="navbar-toggler-icon"></span>
 		</button>
 		
+		<!-- Language Mobile -->
 		<div class="d-block d-sm-block d-md-none dropdown">
-			<a href="tel:+6645958888" class="txt-phonnumber-mobile">
-                <img src="/asset/images/ico_mobile_w.png" width="16">&nbsp;045-958-888
+			<a href="{{ __('default.nav_phone_number_href')}}">
+				<img src="{{ asset('images/ico_phone.svg') }}" class="icoNavbarMini" /> {{ __('default.nav_phone_number')}}
             </a>
-			<button class="btn dropdown-toggle slanguage-show-mobile " type="button" data-toggle="dropdown">
-                <img src="{{ asset('images/ico_flags_th.svg') }}" width="32" height="32" /> TH
-			<span class="caret"></span></button>
+			<button class="btn dropdown-toggle slanguage-show-mobile" type="button" data-toggle="dropdown">
+                <img src="{{ asset('images/ico_flags_th.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_thai') }}
+				<span class="caret"></span>
+			</button>
 			<ul class="slanguage dropdown-menu">
-				<li><a href="/switchlang/th/"><img src="{{ asset('images/ico_flags_th.svg') }}" width="32" height="32" /> {{ __('default.nav_lang_thai') }}</a></li>
-				<li><a href="/switchlang/en/"><img src="{{ asset('images/ico_flags_en.svg') }}" width="32" height="32" /> {{ __('default.nav_lang_eng') }}</a></li>
+				<li>
+					<a href="{{ URL::to('lang/th') }}">
+						<img src="{{ asset('images/ico_flags_th.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_thai') }}
+					</a>
+				</li>
+				<li>
+					<a href="{{ URL::to('lang/en') }}">
+						<img src="{{ asset('images/ico_flags_en.svg') }}" class="icoNavbar" /> {{ __('default.nav_lang_eng') }}
+					</a>
+				</li>
 			</ul>
 		</div>
 
+		<!-- Menu -->
 	  	<div class="collapse navbar-collapse" id="navbarTogglerMainMenu">
 	    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('home') }}">
 						{{ __('default.nav_menu_home') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/aboutus">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('aboutus') }}">
 						{{ __('default.nav_menu_aboutus') }}
 					</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link color__black" href="/services">
+				  <a class="nav-link colorBlack" href="{{ URL::to('services') }}">
 					  {{ __('default.nav_menu_services') }}
 				  </a>
 				</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/doctor">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('doctor') }}">
 						{{ __('default.nav_menu_doctor') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/articles">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('articles') }}">
 						{{ __('default.nav_menu_articles') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link color__black" href="/">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('contactus') }}">
+						{{ __('default.nav_menu_contact') }}
+					</a>
+				</li>
+				<li class="nav-item">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('contactus') }}">
 						{{ __('default.nav_menu_contact') }}
 					</a>
 	      		</li>
 	    	</ul>
 	    	<form class="form-inline my-2 my-lg-0">
-	      		<input class="form-control mr-sm-2 boxSearch" type="text" placeholder="Search" aria-label="Search">
+				  <input class="form-control mr-sm-2 boxSearch" 
+							type="text" 
+							placeholder="{{ __('default.nav_menu_search') }}" 
+							aria-label="{{ __('default.nav_menu_search') }}">
 	    	</form>
 	  	</div>
 	</nav>
