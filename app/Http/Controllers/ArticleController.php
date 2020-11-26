@@ -35,9 +35,8 @@ class ArticleController extends Controller
         foreach($result as $key => $item) {
             $data[$key]['id']           = $item->id;
             $data[$key]['title']        = unserialize($item->title);
-            $data[$key]['description']  = unserialize($item->description);
             $data[$key]['detail']       = unserialize($item->detail);
-            $data[$key]['banner']       = unserialize($item->banner);
+            $data[$key]['credit']       = $item->credit;
         }
 
         return view('pages.articleDetail', ['data' => $data[0]]);
