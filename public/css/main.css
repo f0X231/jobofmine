@@ -43,6 +43,9 @@ small {
 .fontSize15rem {
     font-size: 1.5rem;
 }
+.fontSize2rem {
+    font-size: 2rem;
+}
 .line__1height {
     line-height: 1;
 }

@@ -2,32 +2,60 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"  />
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 <style>
 /* external css: flickity.css */
 .about__us {
+  padding: 25px 0;
+  margin-bottom: 50px;
   background-color: #5dc9c9;
   color: white;
 }
-.gallery {
-  background: #EEE;
+.aboutus__main h1, .aboutus__main p {
+  margin: 0;
+}
+.dashStyle {
+  list-style-type: none;
+  padding-left: 2.5rem;
+}
+.dashStyle li:before {
+  content: "–";
+  position: absolute;
+  margin-left: -1em;
+}
+.section__gallery {
+  background-color: #ECECEC;
+  margin: 25px 0;
+  padding: 80px 0;
+}
+.flickity-viewport {
+  height: 300px;
 }
 .gallery-cell {
-  width: 66%;
-  height: 200px;
+  width: 60%;
+  height: 260px;
   margin-right: 10px;
-  background: #8C8;
+  margin-top: 20px;
+  background: #000;
   counter-increment: gallery-cell;
+  text-align: center;
+}
+.gallery-cell.is-selected {
+  height: 300px;
+  margin-top: 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* cell number */
-.gallery-cell:before {
+/*.gallery-cell:before {
   display: block;
   text-align: center;
   content: counter(gallery-cell);
-  line-height: 200px;
+  line-height: 300px;
   font-size: 80px;
   color: white;
-}
+}*/
 </style>
 
 <div class="hero_banner">
@@ -56,44 +84,49 @@
   <div class="container">
     <div class="row">
       <div class="col-12 aboutus__main">
-          <h1>{{ __('aboutus.aboutus_title') }}</h1>
-          <p>{{ __('aboutus.aboutus_detail') }}</p>
+          <h1 class="fontSize2rem">{{ __('aboutus.aboutus_title') }}</h1>
+          <p class="fontSize15rem">{{ __('aboutus.aboutus_detail') }}</p>
       </div>
     </div>
   </div>
 </section>
 <div class="container">
-    <div class="row">
-        <div class="col-12 aboutus__pvm">
-            <h2 class="color__primary">{{ __('aboutus.pvm_title') }}</h2>
-            <h3>{{ __('aboutus.philosophy_title') }}</h3>
-            <p>{{ __('aboutus.philosophy_detail') }}</p>
-            <h3>{{ __('aboutus.vision_title') }}</h3>
-            <p>{{ __('aboutus.vision_detail') }}</p>
-            <h3>{{ __('aboutus.mission_title') }}</h3>
-            <p>
-                <ul>
-                    <li>{{ __('aboutus.mission_title_1') }}</li>
-                    <li>{{ __('aboutus.mission_title_2') }}</li>
-                    <li>{{ __('aboutus.mission_title_3') }}</li>
-                </ul>
-            </p>
-        </div>
+  <div class="row">
+    <div class="col-12 aboutus__pvm">
+      <h2 class="colorPrimary fontSize2rem">{{ __('aboutus.pvm_title') }}</h2>
+      <h3>{{ __('aboutus.philosophy_title') }}</h3>
+      <p class="fontSize15rem">{{ __('aboutus.philosophy_detail') }}</p>
+      <br />
+      <h3>{{ __('aboutus.vision_title') }}</h3>
+      <p class="fontSize15rem">{{ __('aboutus.vision_detail') }}</p>
+      <br />
+      <h3>{{ __('aboutus.mission_title') }}</h3>
+      <p>
+        <ul class="dashStyle">
+            <li class="fontSize15rem">{{ __('aboutus.mission_title_1') }}</li>
+            <li class="fontSize15rem">{{ __('aboutus.mission_title_2') }}</li>
+            <li class="fontSize15rem">{{ __('aboutus.mission_title_3') }}</li>
+        </ul>
+      </p>
     </div>
-    <div class="row">
-        <div class="col-12 aboutus__gallery">
-            <h2 class="color__primary text-center">{{ __('aboutus.gallery_title') }}</h2>
-            <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-              <div class="gallery-cell"></div>
-              <div class="gallery-cell"></div>
-              <div class="gallery-cell"></div>
-              <div class="gallery-cell"></div>
-              <div class="gallery-cell"></div>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+<section class="section__gallery">
+  <div class="container">
+      <div class="row">
+          <div class="col-12 aboutus__gallery">
+              <h2 class="colorPrimary fontSize2rem text-center">{{ __('aboutus.gallery_title') }}</h2>
+              <br />
+              <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                @foreach ($data as $item)
+                  <div class="gallery-cell" style="background-image: url('{{$item['image']}}')"></div>
+                @endforeach
+              </div>
+          </div>
+      </div>
+    <div>
+  </div>
+</section>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 @stop

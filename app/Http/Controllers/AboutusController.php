@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Gallery as Gallery;
 
 class AboutusController extends Controller
 {
     public function index()
     {
-        return view('pages.aboutus');
+        $data = array();
+        $results = Gallery::where([['page', '=', 'aboutus'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
+        foreach($results as $key => $items) {
+            $data[$key]['id']           = $items->id;
+            $data[$key]['image']        = '/images/gallery/'.$items->picture;
+            $data[$key]['description']  = unserialize($items->description);
+        }
+
+        return view('pages.aboutus', ['data' => $data]);
     }
 }

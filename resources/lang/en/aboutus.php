@@ -12,5 +12,5 @@ return [
     'mission_title_1'   => 'เป็นเพื่อนที่คอยรับฟัง',
     'mission_title_2'   => 'เป็นเพื่อนที่เข้าใจ',
     'mission_title_3'   => 'เป็นเพื่อนที่ช่วยคุณแก้ไขปัยหาไปด้วยกัน',
-    'gallery_title'     => 'gallery',
+    'gallery_title'     => 'GALLERY',
 ];
