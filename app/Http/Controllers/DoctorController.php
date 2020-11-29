@@ -37,12 +37,12 @@ class DoctorController extends Controller
         foreach($result as $key => $person) {
             $data[$key]['id']           = $person->id;
             $data[$key]['name']         = unserialize($person->name);
-            $data[$key]['license']      = unserialize($person->license);
+            $data[$key]['nickname']     = $person->nickname;
+            $data[$key]['license']      = $person->license;
             $data[$key]['position']     = unserialize($person->description);
             $data[$key]['department']   = unserialize($person->department);
             $data[$key]['education']    = unserialize($person->education);
             $data[$key]['work']         = unserialize($person->work);
-            $data[$key]['research']     = unserialize($person->research);
             $data[$key]['extended']     = unserialize($person->extended);
             $data[$key]['picture']      = $person->picture;
         }

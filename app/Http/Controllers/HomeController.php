@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use View;
 use Illuminate\Http\Request;
-use App\Models\Articles as Articles;
+use App\Models\Services as Services;
 
 class HomeController extends Controller
 {
@@ -16,23 +16,23 @@ class HomeController extends Controller
     public function index()
     {
         $data = array();
-        $results = Articles::where([['is_home', '=', 'Y'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
-                            ->get();
-        foreach($results as $key => $items) {
-            $title      = unserialize($items->title);
+        $services = Services::orderBy('order_no', 'asc')->get();
+        foreach($services as $key => $service) {
+            $title      = unserialize($service->title);
             $slugTH     = $this->make_slug($title['th']);
             $slugEN     = $this->make_slug($title['en']);
 
-            $data[$key]['id']           = $items->id;
+            $data[$key]['id']           = $service->id;
             $data[$key]['title']        = $title;
-            $data[$key]['thumbnail']    = unserialize($items->thumbnail);
+            $data[$key]['description']  = unserialize($service->description);
+            $data[$key]['thumbnail']    = unserialize($service->thumbnail);
             $data[$key]['slug']         = array(
-                                                'th'    => 'articles/'.$items->id.'/'.$slugTH,
-                                                'en'    => 'articles/'.$items->id.'/'.$slugEN,
+                                                'th'    => 'services/'.$service->id.'/'.$slugTH,
+                                                'en'    => 'services/'.$service->id.'/'.$slugEN,
                                             );
         }
 
-        return view('pages.home', ['article' => $data]);
+        return view('pages.home', ['services' => $data]);
     }
 
     /**
@@ -99,5 +99,9 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function make_slug($string) {
+        return preg_replace('/\s+/u', '-', trim($string));
     }
 }

@@ -77,15 +77,7 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and
 
 /usr/local/lib
 ├── @vue/cli-service-global@4.5.8
-├── cross-env@7.0.2
-├── express-generator@4.16.1
 ├── firebase-tools@8.16.1
 ├── gatsby-cli@2.13.0
-├── grunt-cli@1.3.2
-├── npm@7.0.10
 ├── react-native@0.63.3
 └── react@16.13.1
-
--   https://frontendscript.com/pure-css-slider-with-buttons/
--   https://codepen.io/Schepp/pen/WNbQByE
--   https://codepen.io/desandro/pen/emjrBm

@@ -36,6 +36,7 @@
   height: 260px;
   margin-right: 10px;
   margin-top: 20px;
+  margin-bottom: 20px;
   background: #000;
   counter-increment: gallery-cell;
   text-align: center;
@@ -61,12 +62,11 @@
 <div class="hero_banner">
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="Second slide">
-      </div>
+      @foreach ($banner as $item)
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{{$item['image']['th']}}" alt="{{$item['description']}}">
+        </div>
+      @endforeach
     </div>
 
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -118,7 +118,7 @@
               <h2 class="colorPrimary fontSize2rem text-center">{{ __('aboutus.gallery_title') }}</h2>
               <br />
               <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                @foreach ($data as $item)
+                @foreach ($gallery as $item)
                   <div class="gallery-cell" style="background-image: url('{{$item['image']}}')"></div>
                 @endforeach
               </div>

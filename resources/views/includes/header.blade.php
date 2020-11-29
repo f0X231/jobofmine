@@ -116,11 +116,6 @@
 						{{ __('default.nav_menu_contact') }}
 					</a>
 				</li>
-				<li class="nav-item">
-	        		<a class="nav-link colorBlack" href="{{ URL::to('contactus') }}">
-						{{ __('default.nav_menu_contact') }}
-					</a>
-	      		</li>
 	    	</ul>
 	    	<form class="form-inline my-2 my-lg-0">
 				  <input class="form-control mr-sm-2 boxSearch" 
