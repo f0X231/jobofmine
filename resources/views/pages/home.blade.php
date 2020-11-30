@@ -8,9 +8,12 @@
 <style>
   /* Doctor */
   .doctor__list {
-    margin: 50px 0 80px 0;
+    margin: 80px 0 135px 0;
   }
-
+  .doctor__ico__arrow {
+    width: 50px;
+    height: 50px;
+  }
   .cascade-slider_container {
     position: relative;
     width: 100%;
@@ -62,7 +65,7 @@
   .cascade-slider_arrow-right { right: 0; }
   .cascade-slider_nav {
     position: absolute;
-    bottom: -120px;
+    bottom: -150px;
     width: 100%;
     text-align: center;
     z-index: 5;
@@ -72,6 +75,7 @@
     width: 1em;
     height: 1em;
     margin: 1em;
+    border-radius: 10px;
     background: #ddd;
     list-style: none;
     cursor: pointer;
@@ -195,6 +199,7 @@
   </div>
 </section>
 
+<!-- Doctor -->
 <section class="section__doctor">
   <div class="container">
       <div class="row">
@@ -207,28 +212,52 @@
         </div>
       </div>
 
-
       <div class="row">
         <div class="col-12 doctor__list">
 
-          <div class="cascade-slider_container" id="cascade-slider">
+          <!-- On Mobile -->
+          <div class="col-10 offset-1 d-block d-sm-none">
+            <div class="owl-carousel owl-theme">
+              @foreach ($doctor as $item)
+                <div class="item">
+                  <a href="{{$item['slug']['th']}}">
+                    <img src="{{$item['thumbnail']}}" width="100%" alt="{{$item['title']['th']}}" />
+                    <h3 class="colorPrimary text-center">{{$item['title']['th']}}</h3>
+                  </a>
+                </div>
+              @endforeach
+            </div>
+          </div>
+
+          <!-- On Desktop -->
+          <div class="cascade-slider_container d-none d-sm-block" id="cascade-slider">
             <div class="cascade-slider_slides">
               @foreach ($doctor as $item)
                 <div class="cascade-slider_item">
-                  <img src="{{$item['thumbnail']}}" alt="{{$item['title']['th']}}">
+                  <a href="{{$item['slug']['th']}}">
+                    <img src="{{$item['thumbnail']}}" alt="{{$item['title']['th']}}">
+                  </a>
                   <br />
-                  <h3>{{$item['title']['th']}}</h3>
+                  <a href="{{$item['slug']['th']}}">
+                    <h3 class="colorPrimary">{{$item['title']['th']}}</h3>
+                  </a>
                   <br />
                 </div>
               @endforeach
             </div>
-          
             <ol class="cascade-slider_nav">
               @foreach ($doctor as $key => $item)
                 <li class="cascade-slider_dot cur"></li>
               @endforeach
             </ol>
+            <span class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
+              <img src="{{ asset('images/ico_arrow_back.svg') }}" class="doctor__ico__arrow" />
+            </span>
+            <span class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next">
+              <img src="{{ asset('images/ico_arrow_next.svg') }}" class="doctor__ico__arrow" />
+            </span>
           </div>
+
         </div>
       </div>
     </div>
@@ -331,13 +360,14 @@
   https://codepen.io/Ranju26/pen/xvWEme
   https://codepen.io/Nagaprasanna/pen/GoKLrJ
   https://codepen.io/Pycb/pen/wWRrjg
+  https://www.flaticon.com/categories/arrows
 -->
 <script>
   jQuery(document).ready(function() {
     $('.owl-carousel').owlCarousel({
       loop:true,
       margin:10,
-      nav:true,
+      nav:false,
       responsive:{
           0:{
               items:1
