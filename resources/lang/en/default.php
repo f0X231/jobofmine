@@ -12,7 +12,7 @@ return [
     'nav_menu_articles'         => 'Articles',
     'nav_menu_doctor'           => 'Doctor',
     'nav_menu_services'         => 'Services',
-    'nav_menu_contact'          => 'contact',
+    'nav_menu_contact'          => 'Contact',
     'nav_menu_search'           => 'Search',
 
     'footer_header_home'        => 'HOME',
@@ -29,8 +29,8 @@ return [
     'footer_header_contactus_map'       => 'แผนที่คลีนิก',
     'footer_header_contactus_phone'     => '04 595 8888',
     'footer_header_contactus_mail'      => 'joyofminds@gmail.com',
-    'footer_header_contactus_line'      => '@joyofmind',
-    'footer_header_contactus_name'      => 'joyofmind',
-    'footer_company_name'       => 'JOY OF MIND BY MASTERWORK CLINIC',
-    'footer_copyright'          => 'Copyright &copy; 2020 JOY OF MIND. All Rights Reserved. Teams and Privacy',
+    'footer_header_contactus_line'      => '@joyofminds',
+    'footer_header_contactus_name'      => 'joyofminds',
+    'footer_company_name'       => 'JOY OF MINDS BY MASTERWORK CLINIC',
+    'footer_copyright'          => 'Copyright &copy; 2020 JOY OF MINDS. All Rights Reserved. Teams and Privacy',
 ];

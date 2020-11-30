@@ -2,92 +2,102 @@
 
 @section('content')
 
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
 <style>
-@media (min-width: 768px) {
-  /* show 3 items */
-  .carousel-inner .active,
-  .carousel-inner .active + .carousel-item,
-  .carousel-inner .active + .carousel-item + .carousel-item {
-    display: block;
+  /* Doctor */
+  .doctor__list {
+    margin: 50px 0 80px 0;
   }
 
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-    -webkit-transition: none;
-    transition: none;
-  }
-
-  .carousel-inner .carousel-item-next,
-  .carousel-inner .carousel-item-prev {
+  .cascade-slider_container {
     position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    width: 100%;
+    height: 250px;
+    margin: 25px auto;
+    padding-top: 150px;
   }
-
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+  .cascade-slider_item {
     position: absolute;
-    top: 0;
-    right: -33.3333%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) scale(0.3);
+    transition: all 1s ease;
+    opacity: 0;
     z-index: -1;
-    display: block;
-    visibility: visible;
+    text-align: center;
   }
-
-  /* left or forward direction */
-  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-  .carousel-item-next.carousel-item-left + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
-    visibility: visible;
+  .cascade-slider_item img {
+    width: 400px;
   }
-
-  /* farthest right hidden item must be abso position for animations */
-  .carousel-inner .carousel-item-prev.carousel-item-right {
+  .cascade-slider_item.next {
+    left: 50%;
+    transform: translateY(-50%) translateX(-150%) scale(0.6);
+    opacity: 1;
+    z-index: 1;
+  }
+  .cascade-slider_item.prev {
+    left: 50%;
+    transform: translateY(-50%) translateX(50%) scale(0.6);
+    opacity: 1;
+    z-index: 1;
+  }
+  .cascade-slider_item.now {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) scale(1);
+    opacity: 1;
+    z-index: 5;
+  }
+  .cascade-slider_arrow {
+    display: inline-block;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: block;
-    visibility: visible;
+    top: 50%;
+    cursor: pointer;
+    z-index: 5;
+    
   }
-
-  /* right or prev direction */
-  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-  .carousel-item-prev.carousel-item-right + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
-    visibility: visible;
-    display: block;
-    visibility: visible;
+  .cascade-slider_arrow-left { left: 0; }
+  .cascade-slider_arrow-right { right: 0; }
+  .cascade-slider_nav {
+    position: absolute;
+    bottom: -120px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
   }
-}
+  .cascade-slider_dot {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 1em;
+    background: #ddd;
+    list-style: none;
+    cursor: pointer;
+  }
+  .cascade-slider_dot:hover { background: #555; }
+  .cascade-slider_dot.cur { background: #555; }
 
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:50%;
-    position:relative;
-    height:0;
-}
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-
+  /* MAP */
+  .map-responsive{
+      overflow:hidden;
+      padding-bottom:50%;
+      position:relative;
+      height:0;
+  }
+  .map-responsive iframe{
+      left:0;
+      top:0;
+      height:100%;
+      width:100%;
+      position:absolute;
+  }
+  /* Contact */
   .home__contact__section {
     margin-top: -150px;
   }
   .home__contact__box {
-    
     background-color: white;
     border: 1px solid #cccccc;
   }
@@ -104,17 +114,27 @@
   .home__services__txt {
     line-height: 1;
   }
+
+  /* Small devices (landscape phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .home__contact__section {
+      margin-top: 25px;
+    }
+    .home__contact__box {
+      margin-top: 8px;
+    }
+  }
+
 </style>
 
 <div class="hero_banner">
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg?version=231" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="/images/banner/banner_home_01.jpg?version=320" alt="Second slide">
-      </div>
+      @foreach ($banner as $item)
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{{$item['image']['th']}}" alt="{{$item['description']}}">
+        </div>
+      @endforeach
     </div>
 
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -131,7 +151,8 @@
 <section class="section__info">
   <div class="container">
       <div class="row">
-          <div class="col-10 offset-1 section__info__txt">
+          <!-- Desktop Version. -->
+          <div class="col-10 offset-1 section__info__txt d-none d-sm-block">
             <div class="row">
               <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
                 <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
@@ -148,6 +169,26 @@
                 <h3>{!! __('home.info_heal') !!}</h3>
                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
               </div>  
+            </div>
+          </div>
+          <!-- Mobile Version. -->
+          <div class="col-10 offset-1 section__info__txt d-block d-sm-none">
+            <div class="owl-carousel owl-theme">
+              <div class="item">
+                <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
+                <h3>{!! __('home.info_estimate') !!}</h3>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div> 
+              </div>
+              <div class="item">
+                <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
+                <h3>{!! __('home.info_cure') !!}</h3>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
+              </div>
+              <div class="item">
+                <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
+                <h3>{!! __('home.info_heal') !!}</h3>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
+              </div>
             </div>
           </div>
       </div>    
@@ -168,60 +209,26 @@
 
 
       <div class="row">
-        <div class="col-12">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto">
-              <div class="carousel-item col-md-4 active">
-                <div class="card">
-                  <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Card 1</h4>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item col-md-4">
-                <div class="card">
-                  <img class="card-img-top img-fluid" src="http://placehold.it/800x600/418cf4/fff" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Card 2</h4>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item col-md-4">
-                <div class="card">
-                  <img class="card-img-top img-fluid" src="http://placehold.it/800x600/3ed846/fff" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Card 3</h4>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item col-md-4">
-                <div class="card">
-                  <img class="card-img-top img-fluid" src="http://placehold.it/800x600/42ebf4/fff" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Card 4</h4>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+        <div class="col-12 doctor__list">
 
+          <div class="cascade-slider_container" id="cascade-slider">
+            <div class="cascade-slider_slides">
+              @foreach ($doctor as $item)
+                <div class="cascade-slider_item">
+                  <img src="{{$item['thumbnail']}}" alt="{{$item['title']['th']}}">
+                  <br />
+                  <h3>{{$item['title']['th']}}</h3>
+                  <br />
+                </div>
+              @endforeach
+            </div>
+          
+            <ol class="cascade-slider_nav">
+              @foreach ($doctor as $key => $item)
+                <li class="cascade-slider_dot cur"></li>
+              @endforeach
+            </ol>
+          </div>
         </div>
       </div>
     </div>
@@ -281,7 +288,7 @@
             style="border:0" 
             allowfullscreen></iframe>
       </div>
-      <div class="row home__contact__section">
+      <div id="contactus" class="row home__contact__section">
         <div class="col-10 offset-1">
           <div class="row">
             <div class="col-sm-4 col-12 text-center home__contact__box">
@@ -316,32 +323,40 @@
   </div>
 </div>
 
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/Minimal-3D-Image-Rotator-with-jQuery-CSS3-Cascade-Slider/cascade-slider.js"></script>
+<!-- 
+  https://codepen.io/cy2/pen/MWYaRQj 
+  https://codepen.io/Ranju26/pen/xvWEme
+  https://codepen.io/Nagaprasanna/pen/GoKLrJ
+  https://codepen.io/Pycb/pen/wWRrjg
+-->
 <script>
-// https://codepen.io/cy2/pen/MWYaRQj
-$(document).ready(function() {
-  $("#myCarousel").on("slide.bs.carousel", function(e) {
-    var $e = $(e.relatedTarget);
-    var idx = $e.index();
-    var itemsPerSlide = 3;
-    var totalItems = $(".carousel-item").length;
-
-    if (idx >= totalItems - (itemsPerSlide - 1)) {
-      var it = itemsPerSlide - (totalItems - idx);
-      for (var i = 0; i < it; i++) {
-        // append slides to end
-        if (e.direction == "left") {
-          $(".carousel-item")
-            .eq(i)
-            .appendTo(".carousel-inner");
-        } else {
-          $(".carousel-item")
-            .eq(0)
-            .appendTo($(this).find(".carousel-inner"));
-        }
+  jQuery(document).ready(function() {
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      responsive:{
+          0:{
+              items:1
+          },
+          768:{
+              items:3
+          },
+          1200:{
+              items:5
+          }
       }
-    }
-  });
-});
-</script>
+    });
 
+    $('#cascade-slider').cascadeSlider({
+      itemClass: 'cascade-slider_item',
+      arrowClass: 'cascade-slider_arrow'
+    });
+
+  });
+</script>
+  
 @stop

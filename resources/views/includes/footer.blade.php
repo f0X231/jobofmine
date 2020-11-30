@@ -2,14 +2,14 @@
   <div class="footer__middle">
     <div class="container">
       <div class="row">
-        <div class="col-md-1 col-sm-4 col-6">
+        <div class="col-md-1 col-sm-4 col-12">
           <!--Column1-->
           <h4 class="footer__middle_title">
             <a href="{{ URL::to('home') }}" class="colorWhite">{{ __('default.footer_header_home') }}</a>
           </h4>
         </div>
 
-        <div class="col-md-2 col-sm-4 col-6">
+        <div class="col-md-2 col-sm-4 col-12">
           <!--Column2-->
           <h4 class="footer__middle_title">
             <a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus') }}</a>
@@ -22,7 +22,7 @@
           </ul>
         </div>
 
-        <div class="col-md-3 col-sm-4 col-6">
+        <div class="col-md-3 col-sm-4 col-12">
           <!--Column3-->
           <h4 class="footer__middle_title">
             <a href="{{ URL::to('services') }}" class="colorWhite">{{ __('default.footer_header_service') }}</a>
@@ -33,7 +33,7 @@
           </ul>
         </div>
 
-        <div class="col-md-3 col-sm-6 col-6">
+        <div class="col-md-3 col-sm-6 col-12">
           <!--Column4-->
           <h4 class="footer__middle_title">
             <a href="{{ URL::to('doctor') }}" class="colorWhite">{{ __('default.footer_header_doctors') }}</a>

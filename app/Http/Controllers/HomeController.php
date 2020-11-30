@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use View;
 use Illuminate\Http\Request;
+use App\Models\Banner as Banner;
+use App\Models\Doctors as Doctors;
 use App\Models\Services as Services;
 
 class HomeController extends Controller
@@ -15,6 +17,38 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Get Banner
+        $banner = array();
+        $results = Banner::where([['page', '=', 'home'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
+        foreach($results as $key => $items) {
+            $banner[$key]['id']           = $items->id;
+            $banner[$key]['image']        = unserialize($items->sourcefile);
+            $banner[$key]['description']  = $items->title;
+            $banner[$key]['link']         = $items->link;
+        } 
+
+        // Get Doctor
+        $doctor = array();
+        $results = Doctors::where([['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
+        foreach($results as $key => $person) {
+            $name       = unserialize($person->name);
+            $slugTH     = $this->make_slug($name['th']);
+            $slugEN     = $this->make_slug($name['en']);
+
+            $doctor[$key]['id']           = $person->id;
+            $doctor[$key]['title']        = $name;
+            $doctor[$key]['thumbnail']    = $person->thumbnail;
+            $doctor[$key]['slug']         = array(
+                                                'th'    => 'doctor/'.$person->id.'/'.$slugTH,
+                                                'en'    => 'doctor/'.$person->id.'/'.$slugEN,
+                                            );
+        }
+
+        // Get Services
         $data = array();
         $services = Services::orderBy('order_no', 'asc')->get();
         foreach($services as $key => $service) {
@@ -32,7 +66,9 @@ class HomeController extends Controller
                                             );
         }
 
-        return view('pages.home', ['services' => $data]);
+        return view('pages.home', [ 'banner'    => $banner, 
+                                    'doctor'    => $doctor, 
+                                    'services'  => $data    ]);
     }
 
     /**

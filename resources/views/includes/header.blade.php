@@ -112,7 +112,7 @@
 					</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link colorBlack" href="{{ URL::to('contactus') }}">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('home#contactus') }}">
 						{{ __('default.nav_menu_contact') }}
 					</a>
 				</li>
