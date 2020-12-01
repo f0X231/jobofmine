@@ -82,6 +82,10 @@ small {
     padding: 20px;
     height: 100px;
 }
+.icoNavbarMini {
+    width: 16px;
+    height: 16px;
+}
 .slanguage.dropdown-menu {
     padding-left: 25px;
     min-width: 8rem;
@@ -194,10 +198,6 @@ footer {
 /**** Responsive ****/
 /* Small devices (landscape phones, less than 576px) */
 @media (max-width: 575.98px) {
-    .icoNavbarMini {
-        width: 16px;
-        height: 16px;
-    }
     .footer__middle_title,
     .footet__list__item {
         text-align: center;

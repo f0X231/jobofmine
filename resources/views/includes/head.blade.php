@@ -32,8 +32,8 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
         crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/fonts.css?version=333') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css?version=333') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/fonts.css?version=5320') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css?version=5320') }}" />
 
 <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 

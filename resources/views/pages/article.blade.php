@@ -31,6 +31,7 @@
 .artical__item p {
     font-size: 2rem;
     padding: 8px;
+    min-height: 120px;
 }
 
 </style>
