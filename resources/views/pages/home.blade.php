@@ -11,8 +11,8 @@
     margin: 80px 0 135px 0;
   }
   .doctor__ico__arrow {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
   }
   .cascade-slider_container {
     position: relative;
@@ -110,6 +110,9 @@
   }
   .home__services__box a:hover {
     color: black;
+  }
+  .home__contact__box_info {
+    min-height: 80px;
   }
   .home__services__title {
     margin-top: 15px;
@@ -296,7 +299,7 @@
                     <div class="home__services__item">
                       <img src="{{$item['thumbnail']['th']}}" width="100%" />
                       <h4 class="colorPrimary fontSize2rem home__services__title">{{$item['title']['th']}}</h4>
-                      <p class="fontSize15rem home__services__txt">{{$item['description']['th']}}</p>
+                      <!--p class="fontSize15rem home__services__txt">{{--$item['description']['th']--}}</p-->
                     </div>
                 </a>
             </div>
@@ -306,11 +309,11 @@
 </section>
 
 <!-- Google Map & Contact Infomation -->
-<div class="container">
+<div id="googlemap" class="container">
   <div class="row">
     <div class="col-12">
       <div class="map-responsive">
-        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" 
+        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=asoke+tower" 
             width="600" 
             height="450" 
             frameborder="0" 
@@ -323,26 +326,38 @@
             <div class="col-sm-4 col-12 text-center home__contact__box">
               <img src="{{ asset('images/ico_map_pin.svg') }}" class="icoInfo" />
               <h4>{{ __('home.contact_title_1') }}</h4>
-              <p>{{ __('home.contact_address') }}</p>
+              <div class="home__contact__box_info">{{ __('home.contact_address') }}</div>
               <br />
-              <div>{{ __('home.contact_footer_1') }}</div>
+              <div class="fontSize15rem">
+                <a href="https://www.google.com/maps?saddr=Current+Location&daddr=13.745728917160257,100.56217863046466" target="_blank">
+                  <b class="colorPrimary">{{ __('home.contact_footer_1') }}</b>
+                </a>
+              </div>
               <br />
             </div>
             <div class="col-sm-4 col-12 text-center home__contact__box">
               <img src="{{ asset('images/ico_contact.svg') }}" class="icoInfo" />
               <h4>{{ __('home.contact_title_2') }}</h4>
-              <p>{{ __('home.contact_contact_mail') }}</p>
-              <p>{{ __('home.contact_contact_phone') }}</p>
+              <div class="home__contact__box_info">
+                <p>{!! __('home.contact_contact_mail') !!}</p>
+                <p>{!! __('home.contact_contact_phone') !!}</p>
+              </div>
               <br />
-              <div>{{ __('home.contact_footer_2') }}</div>
+              <div class="colorPrimary fontSize15rem">
+                <b class="colorPrimary">{{ __('home.contact_footer_2') }}</b>
+              </div>
               <br />
             </div>
             <div class="col-sm-4 col-12 text-center home__contact__box">
               <img src="{{ asset('images/ico_gallery.svg') }}" class="icoInfo" />
               <h4>{{ __('home.contact_title_3') }}</h4>
-              <p>{{ __('home.contact_gallery_txt') }}</p>
+              <div class="home__contact__box_info">{{ __('home.contact_gallery_txt') }}</div>
               <br />
-              <div>{{ __('home.contact_footer_3') }}</div>
+              <div class="colorPrimary fontSize15rem">
+                <a href="{{ URL::to('aboutus#gallery') }}">
+                  <b class="colorPrimary">{{ __('home.contact_footer_3') }}</b>
+                </a>
+              </div>
               <br />
             </div>
           </div>

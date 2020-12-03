@@ -6,7 +6,7 @@ use View;
 use Illuminate\Http\Request;
 use App\Models\Banner as Banner;
 use App\Models\Doctors as Doctors;
-use App\Models\Services as Services;
+use App\Models\Articles as Articles;
 
 class HomeController extends Controller
 {
@@ -18,39 +18,21 @@ class HomeController extends Controller
     public function index()
     {
         // Get Banner
-        $banner = array();
-        $results = Banner::where([['page', '=', 'home'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
-                            ->orderBy('order_no', 'asc')
-                            ->get();
-        foreach($results as $key => $items) {
-            $banner[$key]['id']           = $items->id;
-            $banner[$key]['image']        = unserialize($items->sourcefile);
-            $banner[$key]['description']  = $items->title;
-            $banner[$key]['link']         = $items->link;
-        } 
+        $banner = parent::getBanner('home');
 
         // Get Doctor
-        $doctor = array();
-        $results = Doctors::where([['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
-                            ->orderBy('order_no', 'asc')
-                            ->get();
-        foreach($results as $key => $person) {
-            $name       = unserialize($person->name);
-            $slugTH     = $this->make_slug($name['th']);
-            $slugEN     = $this->make_slug($name['en']);
-
-            $doctor[$key]['id']           = $person->id;
-            $doctor[$key]['title']        = $name;
-            $doctor[$key]['thumbnail']    = $person->thumbnail;
-            $doctor[$key]['slug']         = array(
-                                                'th'    => 'doctor/'.$person->id.'/'.$slugTH,
-                                                'en'    => 'doctor/'.$person->id.'/'.$slugEN,
-                                            );
-        }
+        $doctor = parent::getListOfDoctor();
 
         // Get Services
+        $services = parent::getListOfServices();
+
+        // Get Article
         $data = array();
-        $services = Services::orderBy('order_no', 'asc')->get();
+        $services = Articles::where([   ['is_home', '=', 'Y'], 
+                                        ['is_active', '=', 'Y'], 
+                                        ['is_delete', '=', 'N'] ])
+                                ->orderBy('order_no', 'asc')
+                                ->get();
         foreach($services as $key => $service) {
             $title      = unserialize($service->title);
             $slugTH     = $this->make_slug($title['th']);
@@ -58,16 +40,17 @@ class HomeController extends Controller
 
             $data[$key]['id']           = $service->id;
             $data[$key]['title']        = $title;
-            $data[$key]['description']  = unserialize($service->description);
+            $data[$key]['description']  = '';
             $data[$key]['thumbnail']    = unserialize($service->thumbnail);
             $data[$key]['slug']         = array(
-                                                'th'    => 'services/'.$service->id.'/'.$slugTH,
-                                                'en'    => 'services/'.$service->id.'/'.$slugEN,
+                                                'th'    => 'articles/'.$service->id.'/'.$slugTH,
+                                                'en'    => 'articles/'.$service->id.'/'.$slugEN,
                                             );
         }
-
+        
         return view('pages.home', [ 'banner'    => $banner, 
                                     'doctor'    => $doctor, 
+                                    'services'  => $services,
                                     'services'  => $data    ]);
     }
 

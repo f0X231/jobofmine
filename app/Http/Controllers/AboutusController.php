@@ -11,16 +11,13 @@ class AboutusController extends Controller
     public function index()
     {
         // Get Banner
-        $banner = array();
-        $results = Banner::where([['page', '=', 'aboutus'], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
-                            ->orderBy('order_no', 'asc')
-                            ->get();
-        foreach($results as $key => $items) {
-            $banner[$key]['id']           = $items->id;
-            $banner[$key]['image']        = unserialize($items->sourcefile);
-            $banner[$key]['description']  = $items->title;
-            $banner[$key]['link']         = $items->link;
-        }   
+        $banner = parent::getBanner('aboutus');
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+        
+        // Get Services
+        $services = parent::getListOfServices();
 
         // Get Gallery
         $data = array();
@@ -33,6 +30,9 @@ class AboutusController extends Controller
             $data[$key]['description']  = unserialize($items->description);
         }
 
-        return view('pages.aboutus', ['banner' => $banner, 'gallery' => $data]);
+        return view('pages.aboutus', [  'banner'    => $banner,
+                                        'gallery'   => $data,
+                                        'services'  => $services,
+                                        'doctor'    => $doctor ]);
     }
 }

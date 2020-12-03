@@ -9,29 +9,32 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        $data = array();
-        $results = Doctors::where([['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
-                            ->orderBy('order_no', 'asc')
-                            ->get();
-        foreach($results as $key => $person) {
-            $name       = unserialize($person->name);
-            $slugTH     = $this->make_slug($name['th']);
-            $slugEN     = $this->make_slug($name['en']);
+        // Get Banner
+        $banner = parent::getBanner('doctor');
 
-            $data[$key]['id']           = $person->id;
-            $data[$key]['title']        = $name;
-            $data[$key]['thumbnail']    = $person->thumbnail;
-            $data[$key]['slug']         = array(
-                                                'th'    => 'doctor/'.$person->id.'/'.$slugTH,
-                                                'en'    => 'doctor/'.$person->id.'/'.$slugEN,
-                                            );
-        }
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
 
-        return view('pages.doctor', ['data' => $data]);
+        // Get Services
+        $services = parent::getListOfServices();
+
+        return view('pages.doctor', [   'banner'    => $banner,
+                                        'services'  => $services, 
+                                        'doctor'    => $doctor        ]);
     }
 
     public function profile($id, $name)
     {
+        // Get Banner
+        $banner = parent::getBanner('doctor');
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+        // Get Infomation of Doctor
         $data = array();
         $result = Doctors::where('id', $id)->get();
         foreach($result as $key => $person) {
@@ -47,7 +50,10 @@ class DoctorController extends Controller
             $data[$key]['picture']      = $person->picture;
         }
 
-        return view('pages.doctorProfile', ['data' => $data[0]]);
+        return view('pages.doctorProfile', [    'banner'    => $banner, 
+                                                'data'      => $data[0],
+                                                'services'  => $services,
+                                                'doctor'    => $doctor      ]);
     }
 
     private function make_slug($string) {

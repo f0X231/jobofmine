@@ -34,4 +34,6 @@ return [
     'footer_company_name'       => 'JOY OF MINDS BY MASTERWORK CLINIC',
     'footer_copyright'          => 'Copyright &copy; 2020 JOY OF MINDS. All Rights Reserved. Teams and Privacy',
 
+    'href_mail'                 => 'mailto:joyofminds@gmail.com',
+
 ];

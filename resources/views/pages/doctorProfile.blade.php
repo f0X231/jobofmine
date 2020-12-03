@@ -39,12 +39,11 @@
 <div class="hero_banner">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="/images/banner/banner_home_01.jpg" alt="Second slide">
-        </div>
+        @foreach ($banner as $item)
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{$item['image']['th']}}" alt="{{$item['description']}}">
+          </div>
+        @endforeach
       </div>
   
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -90,6 +89,20 @@
 <div class="container">
     <div class="row">
         <div class="col-12 doctor__extension">{!! urldecode($data['extended']['th']) !!}</div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 fontSize125rem text-center">
+            <br />
+            <br />
+            <a href="{{ URL::to('doctor') }}">
+              <b>
+                <img src="{{ asset('images/back.svg') }}" class="icoNavbar" /> {{ __('doctor.txt_goback') }}
+              </b>
+            </a>
+            <br />
+        </div>
     </div>
 </div>
 

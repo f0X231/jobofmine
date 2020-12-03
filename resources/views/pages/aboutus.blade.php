@@ -111,7 +111,7 @@
     </div>
   </div>
 </div>
-<section class="section__gallery">
+<section id="gallery" class="section__gallery">
   <div class="container">
       <div class="row">
           <div class="col-12 aboutus__gallery">

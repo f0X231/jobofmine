@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Banner as Banner;
 use App\Models\Articles as Articles;
 
 class ArticleController extends Controller
 {
     public function index()
     {
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
         $data = array();
         $results = Articles::orderBy('order_no', 'asc')->get();
         foreach($results as $key => $items) {
@@ -25,11 +32,23 @@ class ArticleController extends Controller
                                             );
         }
 
-        return view('pages.article', ['data' => $data]);
+        return view('pages.article', [  'data'      => $data,
+                                        'services'  => $services,
+                                        'doctor'    => $doctor  ]);
     }
 
     public function detail($id, $name)
     {
+        // Get Banner
+        $banner = parent::getBanner('article', $id);
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+        // Get Infomation
         $data = array();
         $result = Articles::where('id', $id)->get();
         foreach($result as $key => $item) {
@@ -39,7 +58,10 @@ class ArticleController extends Controller
             $data[$key]['credit']       = $item->credit;
         }
 
-        return view('pages.articleDetail', ['data' => $data[0]]);
+        return view('pages.articleDetail', ['banner'    => $banner, 
+                                            'data'      => $data[0],
+                                            'services'  => $services, 
+                                            'doctor'    => $doctor   ]);
     }
 
     private function make_slug($string) {

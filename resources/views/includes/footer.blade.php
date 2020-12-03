@@ -28,8 +28,9 @@
             <a href="{{ URL::to('services') }}" class="colorWhite">{{ __('default.footer_header_service') }}</a>
           </h4>
           <ul class="footet__list__item list-unstyled d-none d-sm-block">
-            <li><a href="#" class="colorWhite">โรคจิตที่เกิดจากสารต่างๆ และยา</a></li>
-            <li><a href="#" class="colorWhite">จิตเวชเด็กและวัยรุ่น</a></li>
+            @foreach ($services as $item)
+              <li><a href="{{$item['slug']['th']}}" class="colorWhite">{{$item['title']['th']}}</a></li>
+            @endforeach
           </ul>
         </div>
 
@@ -39,14 +40,9 @@
             <a href="{{ URL::to('doctor') }}" class="colorWhite">{{ __('default.footer_header_doctors') }}</a>
           </h4>
           <ul class="footet__list__item list-unstyled d-none d-sm-block">
-            <li><a href="#" class="colorWhite">นพ.จตุภัทร คุณสงค์</a></li>
-            <li><a href="#" class="colorWhite">นพ.ภูมิปภพ สุนศุข</a></li>
-            <li><a href="#" class="colorWhite">พญ.ปรานี ปวีณชนา</a></li>
-            <li><a href="#" class="colorWhite">นพ.ดร.ประวีณ์นุช เพ็ยกาสถานต์</a></li>
-            <li><a href="#" class="colorWhite">นพ.จตุภัทร คุณสงค์</a></li>
-            <li><a href="#" class="colorWhite">นพ.ภูมิปภพ สุนศุข</a></li>
-            <li><a href="#" class="colorWhite">พญ.ปรานี ปวีณชนา</a></li>
-            <li><a href="#" class="colorWhite">นพ.ดร.ประวีณ์นุช เพ็ยกาสถานต์</a></li>
+            @foreach ($doctor as $item)
+              <li><a href="{{$item['slug']['th']}}" class="colorWhite">{{$item['title']['th']}}</a></li>
+            @endforeach
           </ul>
         </div>
         <!--Column5-->
@@ -65,19 +61,19 @@
               </a>
             </li>
             <li>
-              <a href="#" class="colorWhite">
+              <a href="{{ __('default.href_mail') }}" class="colorWhite">
                 <img src="{{ asset('images/ico_mail_white.svg') }}" class="footer_ico" />
                 {{ __('default.footer_header_contactus_mail') }}
               </a>
             </li>
             <li>
-              <a href="#" class="colorWhite">
+              <a href="http://line.me/ti/p/@joyofminds" target="_blank" class="colorWhite">
                 <img src="{{ asset('images/ico_line_white.svg') }}" class="footer_ico" />
                 {{ __('default.footer_header_contactus_line') }}
               </a>
             </li>
             <li>
-              <a href="#" class="colorWhite">
+              <a href="https://www.facebook.com/Joyofminds" target="_blank" class="colorWhite">
                 <img src="{{ asset('images/ico_facebook_white.svg') }}" class="footer_ico" />
                 {{ __('default.footer_header_contactus_name') }}
               </a>

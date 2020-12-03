@@ -11,9 +11,20 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        // Get Banner
+        $id = 0;
+        $banner = parent::getBanner('services', $id);
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+        // Get list of Services
         $data = array();
-        $services = Services::orderBy('order_no', 'asc')->get();
-        foreach($services as $key => $service) {
+        $servicess = Services::orderBy('order_no', 'asc')->get();
+        foreach($servicess as $key => $service) {
             $title      = unserialize($service->title);
             $slugTH     = $this->make_slug($title['th']);
             $slugEN     = $this->make_slug($title['en']);
@@ -27,11 +38,24 @@ class ServiceController extends Controller
                                             );
         }
 
-        return view('pages.service', ['data' => $data]);
+        return view('pages.service', [  'banner'    => $banner,
+                                        'data'      => $data,
+                                        'services'  => $services,
+                                        'doctor'    => $doctor       ]);
     }
 
     public function detail($id, $name)
     {
+        // Get Banner
+        $banner = parent::getBanner('services', $id);
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+        // Get info of Services
         $data = array();
         $result = Services::where('id', $id)->get();
         foreach($result as $key => $item) {
@@ -43,7 +67,7 @@ class ServiceController extends Controller
             $data[$key]['detail']       = unserialize($item->detail);
             $data[$key]['banner']       = unserialize($item->banner);
         }
-        
+
         $gallery = array();
         $result = Gallery::where([['page', '=', 'services'], ['page_id', '=', $id]])
                             ->orderBy('order_no', 'ASC')
@@ -53,9 +77,12 @@ class ServiceController extends Controller
             $gallery[$key]['image']         = '/images/gallery/'.$item->picture;
             $gallery[$key]['description']   = $item->description;
         }
-        
-        return view('pages.serviceDetail', [    'data'      => $data[0], 
-                                                'gallery'   => $gallery     ]);
+
+        return view('pages.serviceDetail', [    'banner'    => $banner,
+                                                'data'      => $data[0], 
+                                                'gallery'   => $gallery,
+                                                'services'  => $services, 
+                                                'doctor'    => $doctor     ]);
     }
 
     private function make_slug($string) {
