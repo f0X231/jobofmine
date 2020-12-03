@@ -80,7 +80,7 @@
   </div>
 </div>
 
-<section class="about__us">
+<section class="about__us" id="vision_mission">
   <div class="container">
     <div class="row">
       <div class="col-12 aboutus__main">

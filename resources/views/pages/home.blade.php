@@ -271,7 +271,7 @@
   <div class="container">
     <div class="row">
       <div class="col-10 offset-1" id="player-overlay">
-        <video>
+        <video controls>
           <source src="/images/video/sample.mp4" />
           <source src="/images/video/sample.webm" type='video/webm; codecs="vp8, vorbis"' />
           <source src="/images/video/sample.ogv" type='video/ogg; codecs="theora, vorbis"' />

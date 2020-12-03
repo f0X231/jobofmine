@@ -15,10 +15,10 @@
             <a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus') }}</a>
           </h4>
           <ul class="footet__list__item list-unstyled d-none d-sm-block">
-            <li><a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus_name') }}</a></li>
-            <li><a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus_vision') }}</a></li>
-            <li><a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus_mission') }}</a></li>
-            <li><a href="{{ URL::to('aboutus') }}" class="colorWhite">{{ __('default.footer_header_aboutus_gallery') }}</a></li>
+            <li><a href="{{ URL::to('aboutus#vision_mission') }}" class="colorWhite">{{ __('default.footer_header_aboutus_name') }}</a></li>
+            <li><a href="{{ URL::to('aboutus#vision_mission') }}" class="colorWhite">{{ __('default.footer_header_aboutus_vision') }}</a></li>
+            <li><a href="{{ URL::to('aboutus#vision_mission') }}" class="colorWhite">{{ __('default.footer_header_aboutus_mission') }}</a></li>
+            <li><a href="{{ URL::to('aboutus#gallery') }}" class="colorWhite">{{ __('default.footer_header_aboutus_gallery') }}</a></li>
           </ul>
         </div>
 

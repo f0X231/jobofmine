@@ -60,8 +60,8 @@ class Controller extends BaseController
             $data[$key]['title']        = $name;
             $data[$key]['thumbnail']    = $person->thumbnail;
             $data[$key]['slug']         = array(
-                                                'th'    => 'doctor/'.$person->id.'/'.$slugTH,
-                                                'en'    => 'doctor/'.$person->id.'/'.$slugEN,
+                                                'th'    => '/doctor/'.$person->id.'/'.$slugTH,
+                                                'en'    => '/doctor/'.$person->id.'/'.$slugEN,
                                             );
         }
 
@@ -81,8 +81,8 @@ class Controller extends BaseController
             $data[$key]['title']        = $title;
             $data[$key]['thumbnail']    = unserialize($service->thumbnail);
             $data[$key]['slug']         = array(
-                                                'th'    => 'services/'.$service->id.'/'.$slugTH,
-                                                'en'    => 'services/'.$service->id.'/'.$slugEN,
+                                                'th'    => '/services/'.$service->id.'/'.$slugTH,
+                                                'en'    => '/services/'.$service->id.'/'.$slugEN,
                                             );
         }
 
