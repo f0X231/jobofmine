@@ -29,11 +29,11 @@
   padding: 80px 0;
 }
 .flickity-viewport {
-  height: 300px;
+  height: 460px;
 }
 .gallery-cell {
   width: 60%;
-  height: 260px;
+  height: 420px;
   margin-right: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -42,11 +42,11 @@
   text-align: center;
 }
 .gallery-cell.is-selected {
-  height: 300px;
+  height: 460px;
   margin-top: 0px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 /* cell number */
 /*.gallery-cell:before {

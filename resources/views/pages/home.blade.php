@@ -207,7 +207,7 @@
   <div class="container">
       <div class="row">
         <div class="col-8 offset-2 text-center">
-          <h2 class="colorPrimary">{{ __('home.info_doctor') }}</h2>
+          <!--h2 class="colorPrimary">{{-- __('home.info_doctor') --}}</h2-->
           <p class="fontSize125rem">{{ __('home.info_doctor_detail') }}</p>
         </div>
         <div class="col-12 text-center">

@@ -4,7 +4,7 @@ return [
     'nav_lang_thai'             => 'TH',
     'nav_lang_eng'              => 'EN',
     'nav_phone_number'          => '090-959-9304',
-    'nav_phone_number_href'     => 'tel:+6645958888',
+    'nav_phone_number_href'     => 'tel:+66909599304',
     'nav_slug'                  => 'ปรึกษาและสอบถามรายละเอียดเพิ่มเติม',
 
     'nav_menu_home'             => 'Home',
@@ -27,7 +27,7 @@ return [
     'footer_header_contactus_contact'   => 'ติดต่อสอบถาม',
     'footer_header_contactus_meeting'   => 'นัดหมาย',
     'footer_header_contactus_map'       => 'แผนที่คลีนิก',
-    'footer_header_contactus_phone'     => '04 595 8888',
+    'footer_header_contactus_phone'     => '090 959 9304',
     'footer_header_contactus_mail'      => 'joyofminds@gmail.com',
     'footer_header_contactus_line'      => '@joyofminds',
     'footer_header_contactus_name'      => 'joyofminds',

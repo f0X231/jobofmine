@@ -48,12 +48,12 @@
         <!--Column5-->
         <div class="col-md-3 col-sm-6 col-12">
           <h4 class="footer__middle_title">
-            <a href="{{ URL::to('contactus') }}" class="colorWhite">{{ __('default.footer_header_contactus') }}</a>
+            <a href="{{ URL::to('home#googlemap') }}" class="colorWhite">{{ __('default.footer_header_contactus') }}</a>
           </h4>
           <ul class="footet__list__item list-unstyled">
-            <li><a href="#" class="colorWhite">{{ __('default.footer_header_contactus_contact') }}</a></li>
-            <li><a href="#" class="colorWhite">{{ __('default.footer_header_contactus_meeting') }}</a></li>
-            <li><a href="#" class="colorWhite">{{ __('default.footer_header_contactus_map') }}</a></li>
+            <!--li><a href="#" class="colorWhite">{{-- __('default.footer_header_contactus_contact') --}}</a></li>
+            <li><a href="#" class="colorWhite">{{-- __('default.footer_header_contactus_meeting') --}}</a></li>
+            <li><a href="#" class="colorWhite">{{-- __('default.footer_header_contactus_map') --}}</a></li-->
             <li>
               <a href="{{ __('default.nav_phone_number_href')}}" class="colorWhite">
                 <img src="{{ asset('images/ico_phone_white.svg') }}" class="footer_ico" />
