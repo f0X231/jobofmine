@@ -10,8 +10,7 @@
     margin-bottom: 0px;
   }
   .services__detail h3 {
-    color: #5dc9c9;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .services__detail ul {
     list-style-type: none;
@@ -34,7 +33,7 @@
     <div class="row">
         <div class="col-12 services__main">
             <h1 class="colorPrimary fontSize3rem">{{$data['title']['th']}}</h1>
-            <p class="fontSize15rem">{{$data['description']['th']}}</p>
+            <p class="fontSize15rem">{!! $data['description']['th'] !!}</p>
         </div>
     </div>
     <div class="row">
