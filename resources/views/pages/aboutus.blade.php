@@ -2,7 +2,8 @@
 
 @section('content')
 
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+<link rel="stylesheet" href="css/lightbox.min.css" />
 <style>
 /* external css: flickity.css */
 .about__us {
@@ -109,5 +110,5 @@
   </div>
 </section>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
+<script src="/js/lightbox.min.js"></script>
 @stop
