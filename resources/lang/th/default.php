@@ -17,7 +17,7 @@ return [
 
     'footer_header_home'        => 'HOME',
     'footer_header_aboutus'     => 'ABOUT US',
-    'footer_header_aboutus_name'        => 'Joy of mind',
+    'footer_header_aboutus_name'        => 'Joy of minds',
     'footer_header_aboutus_vision'      => 'Vision',
     'footer_header_aboutus_mission'     => 'Mission',
     'footer_header_aboutus_gallery'     => 'Picture & Gallery',

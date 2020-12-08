@@ -274,7 +274,7 @@
         <hr class="section__doctor__hr" >
       </div>
       <div class="row home__services__section">
-        @foreach ($services as $item)
+        @foreach ($data as $item)
             <div class="col-sm-6 col-12 home__services__box">
                 <a href="{{$item['slug']['th']}}">
                     <div class="home__services__item">

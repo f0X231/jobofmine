@@ -28,12 +28,12 @@ class HomeController extends Controller
 
         // Get Article
         $data = array();
-        $services = Articles::where([   ['is_home', '=', 'Y'], 
+        $article = Articles::where([   ['is_home', '=', 'Y'], 
                                         ['is_active', '=', 'Y'], 
                                         ['is_delete', '=', 'N'] ])
                                 ->orderBy('order_no', 'asc')
                                 ->get();
-        foreach($services as $key => $service) {
+        foreach($article as $key => $service) {
             $title      = unserialize($service->title);
             $slugTH     = $this->make_slug($title['th']);
             $slugEN     = $this->make_slug($title['en']);
@@ -51,7 +51,7 @@ class HomeController extends Controller
         return view('pages.home', [ 'banner'    => $banner, 
                                     'doctor'    => $doctor, 
                                     'services'  => $services,
-                                    'services'  => $data    ]);
+                                    'data'      => $data    ]);
     }
 
     /**
