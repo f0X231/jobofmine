@@ -3,7 +3,9 @@
 @section('content')
 
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
-<link rel="stylesheet" href="css/lightbox.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
 <style>
 /* external css: flickity.css */
 .about__us {
@@ -48,6 +50,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+.img-gallery {
+  object-fit: cover;
 }
 /* cell number */
 /*.gallery-cell:before {
@@ -99,9 +104,20 @@
           <div class="col-12 aboutus__gallery">
               <h2 class="colorPrimary fontSize2rem text-center">{{ __('aboutus.gallery_title') }}</h2>
               <br />
-              <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+              <!-- Desktop Version. -->
+              <div class="gallery js-flickity d-none d-sm-block" data-flickity-options='{ "wrapAround": true }'>
                 @foreach ($gallery as $item)
-                  <div class="gallery-cell" style="background-image: url('{{$item['image']}}')"></div>
+                    <div class="gallery-cell">
+                      <a data-fancybox="gallery" href="{{$item['image']}}">
+                        <img src="{{$item['image']}}" width="100%" class="img-gallery" />
+                      </a>
+                    </div>
+                @endforeach
+              </div>
+              <!-- Mobile Version. -->
+              <div class="owl-carousel owl-theme d-block d-sm-none">
+                @foreach ($gallery as $item)
+                    <div class="item"><img src="{{$item['image']}}" width="100%" class="img-gallery" /></div>
                 @endforeach
               </div>
           </div>
@@ -110,5 +126,26 @@
   </div>
 </section>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="/js/lightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:false,
+      responsive:{
+          0:{
+              items:1
+          },
+          768:{
+              items:3
+          },
+          1200:{
+              items:5
+          }
+      }
+    });
+  });
+</script>
 @stop
