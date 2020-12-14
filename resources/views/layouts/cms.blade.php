@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('includes.cms.head')
+    @include('includes.cms_head')
 </head>
 
 <body id="page-top">
@@ -11,7 +11,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('includes.cms.menu')
+        @include('includes.cms_menu')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -21,7 +21,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('includes.cms.navbar')
+                @include('includes.cms_navbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -34,7 +34,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('includes.cms.script')
+            @include('includes.cms_footer')
             <!-- End of Footer -->
 
         </div>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    @include('includes.cms.script')
+    @include('includes.cms_script')
 </body>
 
 </html>
