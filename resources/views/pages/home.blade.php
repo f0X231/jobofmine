@@ -145,17 +145,17 @@
               <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
                 <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_estimate') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div>
+                <div>{!! __('home.info_estimate_detail') !!}</div>
               </div>   
               <div class="col-sm-4 col-12 home__info colorWhite section_info_2">
                 <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_cure') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
+                <div>{!! __('home.info_cure_detail') !!}</div>
               </div>   
               <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
                 <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_heal') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
+                <div>{!! __('home.info_heal_detail') !!}</div>
               </div>  
             </div>
           </div>
@@ -165,17 +165,17 @@
               <div class="item">
                 <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_estimate') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div> 
+                <div>{!! __('home.info_estimate_detail') !!}</div> 
               </div>
               <div class="item">
                 <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_cure') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
+                <div>{!! __('home.info_cure_detail') !!}</div>
               </div>
               <div class="item">
                 <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_heal') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
+                <div>{!! __('home.info_heal_detail') !!}</div>
               </div>
             </div>
           </div>
