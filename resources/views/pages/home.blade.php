@@ -266,7 +266,7 @@
   <div class="container">
       <div class="row">
         <div class="col-8 offset-2 text-center">
-          <h2 class="colorPrimary">{{ __('home.info_article') }}</h2>
+          <h2><a href="{{ URL::to('articles') }}" class="colorPrimary">{{ __('home.info_article') }}</a></h2>
           <p class="fontSize15rem">{{ __('home.info_article_detail') }}</p>
         </div>
       </div>

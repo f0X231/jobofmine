@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2020 at 10:43 AM
+-- Generation Time: Dec 13, 2020 at 04:42 PM
 -- Server version: 10.3.23-MariaDB-cll-lve
 -- PHP Version: 7.3.25
 
@@ -171,21 +171,21 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `page`, `page_id`, `order_no`, `picture`, `description`, `is_active`, `is_delete`, `create_date`, `createy_by`, `update_date`, `update_by`) VALUES
-(1, 'services', 1, 1, 'service_1_01.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(2, 'services', 1, 2, 'service_1_02.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(3, 'services', 1, 3, 'service_1_03.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(4, 'services', 1, 4, 'service_1_04.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(5, 'services', 2, 1, 'service_2_01.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(6, 'services', 2, 2, 'service_2_02.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(7, 'services', 2, 3, 'service_2_03.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(8, 'services', 2, 4, 'service_2_04.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(9, 'aboutus', 1, 1, 'gallery_01.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(10, 'aboutus', 1, 2, 'gallery_02.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(11, 'aboutus', 1, 3, 'gallery_03.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(12, 'aboutus', 1, 4, 'gallery_04.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(13, 'aboutus', 1, 5, 'gallery_05.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(14, 'aboutus', 1, 6, 'gallery_06.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
-(15, 'aboutus', 1, 7, 'gallery_07.jpg', NULL, 'Y', 'N', NULL, NULL, NULL, NULL);
+(1, 'services', 1, 1, 'service_1_01.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(2, 'services', 1, 2, 'service_1_02.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(3, 'services', 1, 3, 'service_1_03.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(4, 'services', 1, 4, 'service_1_04.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(5, 'services', 2, 1, 'service_2_01.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(6, 'services', 2, 2, 'service_2_02.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(7, 'services', 2, 3, 'service_2_03.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(8, 'services', 2, 4, 'service_2_04.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(9, 'aboutus', 1, 1, 'gallery_01.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(10, 'aboutus', 1, 2, 'gallery_02.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(11, 'aboutus', 1, 3, 'gallery_03.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(12, 'aboutus', 1, 4, 'gallery_04.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(13, 'aboutus', 1, 5, 'gallery_05.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(14, 'aboutus', 1, 6, 'gallery_06.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL),
+(15, 'aboutus', 1, 7, 'gallery_07.jpg?version=320', NULL, 'Y', 'N', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
