@@ -6,8 +6,12 @@ use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
-
+/* CMS Controller */
 use App\Http\Controllers\Cms\DashboardController;
+use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
+use App\Http\Controllers\Cms\ArticleController as CMSArticleController;
+use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
+use App\Http\Controllers\Cms\SeoController as CMSSeoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +55,24 @@ Route::prefix('cms')->group(function() {
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('index', [DashboardController::class, 'index']);
     Route::get('home', [DashboardController::class, 'index']);
-});
 
+    Route::get('doctor', [CMSDoctorController::class, 'index']);
+    Route::get('doctor/add', [CMSDoctorController::class, 'actionAdd']);
+    Route::get('doctor/edit/{id}/{name}', [CMSDoctorController::class, 'actionEdit']);
+
+    Route::get('article', [CMSArticleController::class, 'index']);
+    Route::get('article/add', [CMSArticleController::class, 'actionAdd']);
+    Route::get('article/edit/{id}/{name}', [CMSArticleController::class, 'actionEdit']);
+
+    Route::get('article', [CMSArticleController::class, 'index']);
+    Route::get('article/add', [CMSArticleController::class, 'actionAdd']);
+    Route::get('article/edit/{id}/{name}', [CMSArticleController::class, 'actionEdit']);
+
+    Route::get('service', [CMSServiceController::class, 'index']);
+    Route::get('service/add', [CMSServiceController::class, 'actionAdd']);
+    Route::get('service/edit/{id}/{name}', [CMSServiceController::class, 'actionEdit']);
+
+    Route::get('seo', [CMSSeoController::class, 'index']);
+    Route::get('seo/add', [CMSSeoController::class, 'actionAdd']);
+    Route::get('seo/edit/{id}/{name}', [CMSSeoController::class, 'actionEdit']);
+});
