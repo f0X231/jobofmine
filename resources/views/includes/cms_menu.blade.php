@@ -27,35 +27,44 @@
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-			aria-expanded="true" aria-controls="collapseTwo">
+		<a 	class="nav-link collapsed" 
+			href="{{ URL::to('/cms') }}" 
+			data-toggle="collapse" 
+			data-target="#collapseTwo"
+			aria-expanded="true" 
+			aria-controls="collapseTwo">
 			<i class="fas fa-fw fa-cog"></i>
 			<span>{{ __('cms_default.nav_group_user') }}</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Components:</h6>
-				<a class="collapse-item" href="buttons.html">Buttons</a>
-				<a class="collapse-item" href="cards.html">Cards</a>
+				<h6 class="collapse-header">{{ __('cms_default.nav_list_txt') }}</h6>
+				<a class="collapse-item" href="{{ URL::to('/cms/user') }}">{{ __('cms_default.nav_item_user') }}</a>
+				<a class="collapse-item" href="{{ URL::to('/cms/groups') }}">{{ __('cms_default.nav_item_user_group') }}</a>
 			</div>
 		</div>
 	</li>
 
 	<!-- Nav Item - Utilities Collapse Menu -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-			aria-expanded="true" aria-controls="collapseUtilities">
+		<a 	class="nav-link collapsed" 
+			href="#" 
+			data-toggle="collapse" 
+			data-target="#collapseUtilities"
+			aria-expanded="true" 
+			aria-controls="collapseUtilities">
 			<i class="fas fa-fw fa-wrench"></i>
-			<span>Utilities</span>
+			<span>{{ __('cms_default.nav_group_general') }}</span>
 		</a>
-		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-			data-parent="#accordionSidebar">
+		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Utilities:</h6>
-				<a class="collapse-item" href="utilities-color.html">Colors</a>
-				<a class="collapse-item" href="utilities-border.html">Borders</a>
-				<a class="collapse-item" href="utilities-animation.html">Animations</a>
-				<a class="collapse-item" href="utilities-other.html">Other</a>
+				<h6 class="collapse-header">{{ __('cms_default.nav_group_infomation') }}</h6>
+				<a class="collapse-item" href="{{ URL::to('/cms/info') }}">{{ __('cms_default.nav_item_basic_info') }}</a>
+				<a class="collapse-item" href="{{ URL::to('/cms/seo') }}">{{ __('cms_default.nav_item_seo') }}</a>
+				<div class="collapse-divider"></div>
+				<a class="collapse-item" href="login.html">Login</a>
+				<a class="collapse-item" href="register.html">Register</a>
+				<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
 			</div>
 		</div>
 	</li>
@@ -64,43 +73,30 @@
 	<hr class="sidebar-divider">
 
 	<!-- Heading -->
-	<div class="sidebar-heading">
-		Addons
-	</div>
+	<div class="sidebar-heading">{{ __('cms_default.nav_group_addons') }}</div>
 
-	<!-- Nav Item - Pages Collapse Menu -->
+	<!-- Nav Item - Doctor -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-			aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-fw fa-folder"></i>
-			<span>Pages</span>
-		</a>
-		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Login Screens:</h6>
-				<a class="collapse-item" href="login.html">Login</a>
-				<a class="collapse-item" href="register.html">Register</a>
-				<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-				<div class="collapse-divider"></div>
-				<h6 class="collapse-header">Other Pages:</h6>
-				<a class="collapse-item" href="404.html">404 Page</a>
-				<a class="collapse-item" href="blank.html">Blank Page</a>
-			</div>
-		</div>
-	</li>
-
-	<!-- Nav Item - Charts -->
-	<li class="nav-item">
-		<a class="nav-link" href="charts.html">
+		<a class="nav-link" href="{{ URL::to('/cms/doctor') }}">
 			<i class="fas fa-fw fa-chart-area"></i>
-			<span>Charts</span></a>
+			<span>{{ __('cms_default.nav_item_doctor') }}</span>
+		</a>
 	</li>
 
 	<!-- Nav Item - Tables -->
 	<li class="nav-item">
-		<a class="nav-link" href="tables.html">
+		<a class="nav-link" href="{{ URL::to('/cms/service') }}">
 			<i class="fas fa-fw fa-table"></i>
-			<span>Tables</span></a>
+			<span>{{ __('cms_default.nav_item_services') }}</span>
+		</a>
+	</li>
+
+	<!-- Nav Item - Tables -->
+	<li class="nav-item">
+		<a class="nav-link" href="{{ URL::to('/cms/article') }}">
+			<i class="fas fa-fw fa-table"></i>
+			<span>{{ __('cms_default.nav_item_article') }}</span>
+		</a>
 	</li>
 
 	<!-- Divider -->
@@ -109,13 +105,6 @@
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">
 		<button class="rounded-circle border-0" id="sidebarToggle"></button>
-	</div>
-
-	<!-- Sidebar Message -->
-	<div class="sidebar-card">
-		<img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-		<p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-		<a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
 	</div>
 
 </ul>

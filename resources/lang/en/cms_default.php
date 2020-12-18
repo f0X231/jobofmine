@@ -4,8 +4,9 @@ return [
     'dashboard_txt'         => 'Dashboard',
     'nav_dashboard_name'    => 'JOY Admin',
 
+    'nav_list_txt'          => 'List : ',
     'nav_group_system'      => 'SYSTEM.',
-    'nav_group_user'        => 'User',
+    'nav_group_user'        => 'User Management',
     'nav_item_user'         => 'User',
     'nav_item_user_group'   => 'Groups',
     'nav_item_seo'          => 'SEO',
