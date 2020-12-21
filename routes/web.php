@@ -12,6 +12,8 @@ use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
 use App\Http\Controllers\Cms\ArticleController as CMSArticleController;
 use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
 use App\Http\Controllers\Cms\SeoController as CMSSeoController;
+use App\Http\Controllers\Cms\UserController as CMSUserController;
+use App\Http\Controllers\Cms\GroupController as CMSGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,14 @@ Route::prefix('cms')->group(function() {
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('index', [DashboardController::class, 'index']);
     Route::get('home', [DashboardController::class, 'index']);
+
+    Route::get('users', [CMSUserController::class, 'index']);
+    Route::get('users/add', [CMSUserController::class, 'actionAdd']);
+    Route::get('users/edit/{id}/{name}', [CMSUserController::class, 'actionEdit']);
+
+    Route::get('groups', [CMSGroupController::class, 'index']);
+    Route::get('groups/add', [CMSGroupController::class, 'actionAdd']);
+    Route::get('groups/edit/{id}/{name}', [CMSGroupController::class, 'actionEdit']);
 
     Route::get('doctor', [CMSDoctorController::class, 'index']);
     Route::get('doctor/add', [CMSDoctorController::class, 'actionAdd']);
