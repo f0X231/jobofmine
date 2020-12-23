@@ -15,6 +15,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+
+    protected $seo = array(
+                            'title'         => '',
+                            'descriptions'  => '',
+                            'keywords'      => '',
+                            'images'        => '',
+                            'type'          => '',
+                        );
+
     public function getBanner($namePage, $pageId=null) 
     {
         // Get Banner

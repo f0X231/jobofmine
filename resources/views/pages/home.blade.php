@@ -83,6 +83,25 @@
   .cascade-slider_dot:hover { background: #555; }
   .cascade-slider_dot.cur { background: #555; }
 
+  /* VDO */
+  .video-container {
+    overflow: hidden;
+    position: relative;
+    width:100%;
+  }
+  .video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   /* MAP */
   .map-responsive{
       overflow:hidden;
@@ -252,11 +271,17 @@
   <div class="container">
     <div class="row">
       <div class="col-10 offset-1" id="player-overlay">
-        <video controls>
+        <!--video controls>
           <source src="/images/video/sample.mp4" />
           <source src="/images/video/sample.webm" type='video/webm; codecs="vp8, vorbis"' />
           <source src="/images/video/sample.ogv" type='video/ogg; codecs="theora, vorbis"' />
-        </video>
+        </video-->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dfa9s8WsiyE" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
       </div>
   </div>
 </section>

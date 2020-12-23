@@ -10,11 +10,13 @@ use App\Models\Articles as Articles;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
+        $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
+    }
+
     public function index()
     {
         // Get Banner
