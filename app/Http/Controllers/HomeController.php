@@ -19,6 +19,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        $seo = parent::getSEO();
+        print_r($seo); exit; 
+
         // Get Banner
         $banner = parent::getBanner('home');
 
