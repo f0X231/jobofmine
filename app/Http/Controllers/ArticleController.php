@@ -32,7 +32,14 @@ class ArticleController extends Controller
                                             );
         }
 
-        return view('pages.article', [  'data'      => $data,
+        $seo = parent::getSEO(  'articles', 
+                                null, 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, บทความเกี่ยวกับทางการแพทย์ด้านจิตเวช', 
+                                null,
+                                config('global.sitename').'articles' );
+
+        return view('pages.article', [  'seo'       => $seo,
+                                        'data'      => $data,
                                         'services'  => $services,
                                         'doctor'    => $doctor  ]);
     }
@@ -58,7 +65,14 @@ class ArticleController extends Controller
             $data[$key]['credit']       = $item->credit;
         }
 
-        return view('pages.articleDetail', ['banner'    => $banner, 
+        $seo = parent::getSEO(  $data[0]['title']['th'], 
+                                $data[0]['title']['th'], 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, '. $data[0]['title']['th'], 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'articles/'.$data[0]['id'].'/'.$this->make_slug($data[0]['title']['th'])    );
+               
+        return view('pages.articleDetail', ['seo'       => $seo,
+                                            'banner'    => $banner, 
                                             'data'      => $data[0],
                                             'services'  => $services, 
                                             'doctor'    => $doctor   ]);

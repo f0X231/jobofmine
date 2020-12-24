@@ -7,13 +7,13 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
 /* CMS Controller */
-use App\Http\Controllers\Cms\DashboardController;
-use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
-use App\Http\Controllers\Cms\ArticleController as CMSArticleController;
-use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
-use App\Http\Controllers\Cms\SeoController as CMSSeoController;
-use App\Http\Controllers\Cms\UserController as CMSUserController;
-use App\Http\Controllers\Cms\GroupController as CMSGroupController;
+// use App\Http\Controllers\Cms\DashboardController;
+// use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
+// use App\Http\Controllers\Cms\ArticleController as CMSArticleController;
+// use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
+// use App\Http\Controllers\Cms\SeoController as CMSSeoController;
+// use App\Http\Controllers\Cms\UserController as CMSUserController;
+// use App\Http\Controllers\Cms\GroupController as CMSGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ Route::get('articles', [ArticleController::class, 'index']);
 Route::get('articles/{id}/{name}', [ArticleController::class, 'detail']);
 /* Login to system. */
 /* CMS */
-Route::prefix('cms')->group(function() {
+/*Route::prefix('cms')->group(function() {
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('index', [DashboardController::class, 'index']);
     Route::get('home', [DashboardController::class, 'index']);
@@ -85,4 +85,4 @@ Route::prefix('cms')->group(function() {
     Route::get('seo', [CMSSeoController::class, 'index']);
     Route::get('seo/add', [CMSSeoController::class, 'actionAdd']);
     Route::get('seo/edit/{id}/{name}', [CMSSeoController::class, 'actionEdit']);
-});
+});*/

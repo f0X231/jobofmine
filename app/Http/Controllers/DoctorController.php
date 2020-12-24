@@ -18,7 +18,14 @@ class DoctorController extends Controller
         // Get Services
         $services = parent::getListOfServices();
 
-        return view('pages.doctor', [   'banner'    => $banner,
+        $seo = parent::getSEO(  'Doctor', 
+                                'ยามที่เกิดปัญหารุมเร้า ทุกคนต่างอยากมีใครสักคนที่คอยรับฟัง เข้าใจถึงความทุกข์ที่มีอยู่และช่วยกันคิดหาทางแก้ไข เราได้เล็งเห็นถึงความสำคัญของปัญหานี้จึงเป็นที่มาของ คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยเป็นเพื่อนร่วมรับฟังและแก้ไขปัญหาไปพร้อมกันเคียงข้างคุณ', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'doctor'    );
+
+        return view('pages.doctor', [   'seo'       => $seo,
+                                        'banner'    => $banner,
                                         'services'  => $services, 
                                         'doctor'    => $doctor        ]);
     }
@@ -50,7 +57,14 @@ class DoctorController extends Controller
             $data[$key]['picture']      = $person->picture;
         }
 
-        return view('pages.doctorProfile', [    'banner'    => $banner, 
+        $seo = parent::getSEO(  $data[0]['name']['th'], 
+                                'คุณจะได้พูดคุยเล่าเรื่องราวต่างๆ หรือปรึกษาปัญหาที่มีอยู่ในบรรยากาศที่อบอุ่น โดยแพทย์ผู้เชี่ยวชาญด้านสุขภาพจิตที่พร้อมเป็นเพื่อนที่รับฟังไปกับคุณ เน้นการพูดคุย ทำความเข้าใจ และหาทางแก้ปัญหาไปพร้อมกัน สถานที่ตั้งอยู่ใจกลางเมือง ศูนย์กลางการทำงานของชาวกรุงเทพ เดินทางมาพูดคุยกันได้อย่างสะดวกสบาย', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, '. $data[0]['name']['th'], 
+                                config('global.sitename').$data[0]['picture'],
+                                config('global.sitename').'doctor/'.$data[0]['id'].'/'.$this->make_slug($data[0]['name']['th'])    );
+
+        return view('pages.doctorProfile', [    'seo'       => $seo,
+                                                'banner'    => $banner, 
                                                 'data'      => $data[0],
                                                 'services'  => $services,
                                                 'doctor'    => $doctor      ]);

@@ -10,18 +10,8 @@ use App\Models\Articles as Articles;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
-        $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
-    }
-
     public function index()
     {
-        $seo = parent::getSEO();
-        print_r($seo); exit; 
-
         // Get Banner
         $banner = parent::getBanner('home');
 
@@ -52,77 +42,18 @@ class HomeController extends Controller
                                                 'en'    => 'articles/'.$service->id.'/'.$slugEN,
                                             );
         }
-        
-        return view('pages.home', [ 'banner'    => $banner, 
+        // Set SEO
+        $seo = parent::getSEO(  'หน้าแรก', 
+                                'คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวกันของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยเป็นเพื่อนร่วมรับฟังและแก้ไขปัญหาไปพร้อมกับเคียงข้างคุณ', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'home'    );
+
+        return view('pages.home', [ 'seo'       => $seo,
+                                    'banner'    => $banner, 
                                     'doctor'    => $doctor, 
                                     'services'  => $services,
                                     'data'      => $data    ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     private function make_slug($string) {
