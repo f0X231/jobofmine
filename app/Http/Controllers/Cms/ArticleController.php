@@ -9,17 +9,17 @@ class ArticleController extends Controller
 {
     public function index()
     {
-
+        return view('cms.articles', ['article' => $article ]);
     }
 
     public function actionAdd()
     {
-        
+        return view('cms.articles_modify', ['article' => $article ]);
     }
 
     public function actionEdit()
     {
-        
+        return view('cms.articles_modify', ['article' => $article ]);
     }
 
     public function actionDelete()

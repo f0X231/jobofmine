@@ -7,5 +7,11 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    //
+    public function index()
+    {
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        return view('cms.doctor', ['doctor' => $doctor ]);
+    }
 }
