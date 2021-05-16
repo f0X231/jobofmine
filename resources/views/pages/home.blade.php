@@ -141,6 +141,7 @@
     line-height: 1;
   }
 
+  
   /* Small devices (landscape phones, less than 576px) */
   @media (max-width: 575.98px) {
     .home__contact__section {
@@ -148,6 +149,12 @@
     }
     .home__contact__box {
       margin-top: 8px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .modal-dialog {
+      max-width: 800px;
     }
   }
 
@@ -373,6 +380,23 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="close" data-dismiss="modal" style="position: absolute; top: 5px; right: 25px;">&times;</button>
+            <img src="{{ asset('images/coverpage.jpg') }}" class="img-responsive" width="100%" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="https://www.jqueryscript.net/demo/Minimal-3D-Image-Rotator-with-jQuery-CSS3-Cascade-Slider/cascade-slider.js"></script>
@@ -384,6 +408,18 @@
   https://www.flaticon.com/categories/arrows
 -->
 <script>
+  $(window).on('load', function() {
+    if (document.cookie.indexOf('visited=true') == -1)
+    {
+      // load the overlay
+      $('#myModal').modal({show:true});
+
+      var year = 1000*60*60*24;
+      var expires = new Date((new Date()).valueOf() + year);
+      document.cookie = "visited=true;expires=" + expires.toUTCString();
+    }
+  });
+
   jQuery(document).ready(function() {
     $('.owl-carousel').owlCarousel({
       loop:true,
