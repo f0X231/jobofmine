@@ -73,10 +73,7 @@ Route::prefix('cms')->group(function() {
     Route::get('article', [CMSArticleController::class, 'index']);
     Route::get('article/add', [CMSArticleController::class, 'actionAdd']);
     Route::get('article/edit/{id}/{name}', [CMSArticleController::class, 'actionEdit']);
-
-    Route::get('article', [CMSArticleController::class, 'index']);
-    Route::get('article/add', [CMSArticleController::class, 'actionAdd']);
-    Route::get('article/edit/{id}/{name}', [CMSArticleController::class, 'actionEdit']);
+    Route::post('article/save', [CMSArticleController::class, 'actionSave']);
 
     Route::get('service', [CMSServiceController::class, 'index']);
     Route::get('service/add', [CMSServiceController::class, 'actionAdd']);
@@ -85,4 +82,8 @@ Route::prefix('cms')->group(function() {
     Route::get('seo', [CMSSeoController::class, 'index']);
     Route::get('seo/add', [CMSSeoController::class, 'actionAdd']);
     Route::get('seo/edit/{id}/{name}', [CMSSeoController::class, 'actionEdit']);
+
+    Route::get('user', [CMSUserController::class, 'index']);
+    Route::get('user/add', [CMSUserController::class, 'actionAdd']);
+    Route::get('user/edit/{id}/{name}', [CMSUserController::class, 'actionEdit']);
 });

@@ -44,7 +44,7 @@ class HomeController extends Controller
         }
         // Set SEO
         $seo = parent::getSEO(  'หน้าแรก', 
-                                'คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวกันของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยเป็นเพื่อนร่วมรับฟังและแก้ไขปัญหาไปพร้อมกับเคียงข้างคุณ', 
+                                'คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวกันของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยรับฟังและแก้ไขปัญหาไปพร้อมกับคุณ', 
                                 'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช', 
                                 config('global.sitename').$banner[0]['image']['th'],
                                 config('global.sitename').'home'    );

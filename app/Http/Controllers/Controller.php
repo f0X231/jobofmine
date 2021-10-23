@@ -102,7 +102,7 @@ class Controller extends BaseController
         return $data;
     }
 
-    private function make_slug($string) {
+    protected function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
     }
 }
