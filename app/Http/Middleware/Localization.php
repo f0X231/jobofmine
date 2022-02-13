@@ -5,6 +5,11 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\App;
 
+// https://dev.to/fadilxcoder/adding-multi-language-functionality-in-a-website-developed-in-laravel-4ech
+// https://medium.com/@ultimateakash/how-to-create-multi-language-website-using-laravel-localization-29237f03393b
+// https://stackoverflow.com/questions/40770071/how-to-add-multilanguage-to-laravel-5-3-using-session
+// https://laraveldaily.com/multi-language-routes-and-locales-with-auth/
+// https://shouts.dev/building-a-multilingual-website-with-laravel-localization
 
 class Localization
 {

@@ -30,7 +30,14 @@ class AboutusController extends Controller
             $data[$key]['description']  = unserialize($items->description);
         }
 
-        return view('pages.aboutus', [  'banner'    => $banner,
+        $seo = parent::getSEO(  'เกี่ยวกับเรา', 
+                                'คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวกันของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยรับฟังและแก้ไขปัญหาไปพร้อมกับคุณ ปรัชญา วิสัยทัศน์ พันธกิจ ของเรา', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, ปรัชญา, วิสัยทัศน์, พันธกิจ', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'aboutus'    );
+
+        return view('pages.aboutus', [  'seo'       => $seo,
+                                        'banner'    => $banner,
                                         'gallery'   => $data,
                                         'services'  => $services,
                                         'doctor'    => $doctor ]);

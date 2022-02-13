@@ -38,7 +38,14 @@ class ServiceController extends Controller
                                             );
         }
 
-        return view('pages.service', [  'banner'    => $banner,
+        $seo = parent::getSEO(  'services', 
+                                'คุณจะได้พูดคุยเล่าเรื่องราวต่างๆ หรือปรึกษาปัญหาที่มีอยู่ในบรรยากาศที่อบอุ่น โดยแพทย์ผู้เชี่ยวชาญด้านสุขภาพจิตที่พร้อมเป็นเพื่อนที่รับฟังไปกับคุณ เน้นการพูดคุย ทำความเข้าใจ และหาทางแก้ปัญหาไปพร้อมกัน สถานที่ตั้งอยู่ใจกลางเมือง ศูนย์กลางการทำงานของชาวกรุงเทพ เดินทางมาพูดคุยกันได้อย่างสะดวกสบาย', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, services, บริการ', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'services'    );
+
+        return view('pages.service', [  'seo'       => $seo,
+                                        'banner'    => $banner,
                                         'data'      => $data,
                                         'services'  => $services,
                                         'doctor'    => $doctor       ]);
@@ -78,7 +85,14 @@ class ServiceController extends Controller
             $gallery[$key]['description']   = $item->description;
         }
 
-        return view('pages.serviceDetail', [    'banner'    => $banner,
+        $seo = parent::getSEO(  $data[0]['title']['th'], 
+                                'คุณจะได้พูดคุยเล่าเรื่องราวต่างๆ หรือปรึกษาปัญหาที่มีอยู่ในบรรยากาศที่อบอุ่น โดยแพทย์ผู้เชี่ยวชาญด้านสุขภาพจิตที่พร้อมเป็นเพื่อนที่รับฟังไปกับคุณ เน้นการพูดคุย ทำความเข้าใจ และหาทางแก้ปัญหาไปพร้อมกัน สถานที่ตั้งอยู่ใจกลางเมือง ศูนย์กลางการทำงานของชาวกรุงเทพ เดินทางมาพูดคุยกันได้อย่างสะดวกสบาย', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, services, บริการ, '. $data[0]['title']['th'], 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'services/'.$data[0]['id'].'/'.$this->make_slug($data[0]['title']['th'])    );
+
+        return view('pages.serviceDetail', [    'seo'       => $seo,
+                                                'banner'    => $banner,
                                                 'data'      => $data[0], 
                                                 'gallery'   => $gallery,
                                                 'services'  => $services, 

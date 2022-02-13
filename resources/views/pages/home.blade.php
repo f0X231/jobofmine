@@ -83,6 +83,25 @@
   .cascade-slider_dot:hover { background: #555; }
   .cascade-slider_dot.cur { background: #555; }
 
+  /* VDO */
+  .video-container {
+    overflow: hidden;
+    position: relative;
+    width:100%;
+  }
+  .video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   /* MAP */
   .map-responsive{
       overflow:hidden;
@@ -122,6 +141,7 @@
     line-height: 1;
   }
 
+  
   /* Small devices (landscape phones, less than 576px) */
   @media (max-width: 575.98px) {
     .home__contact__section {
@@ -129,6 +149,12 @@
     }
     .home__contact__box {
       margin-top: 8px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .modal-dialog {
+      max-width: 800px;
     }
   }
 
@@ -145,17 +171,17 @@
               <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
                 <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_estimate') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div>
+                <div>{!! __('home.info_estimate_detail') !!}</div>
               </div>   
               <div class="col-sm-4 col-12 home__info colorWhite section_info_2">
                 <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_cure') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
+                <div>{!! __('home.info_cure_detail') !!}</div>
               </div>   
               <div class="col-sm-4 col-12 home__info colorWhite section_info_1">
                 <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_heal') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
+                <div>{!! __('home.info_heal_detail') !!}</div>
               </div>  
             </div>
           </div>
@@ -165,17 +191,17 @@
               <div class="item">
                 <img src="{{ asset('images/ico_stethoscope_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_estimate') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis quibusdam saepe provident dignissimos ex pariatur. Excepturi fugit distinctio assumenda aut illum iure placeat? Sed praesentium sit repellendus quibusdam quasi.</div> 
+                <div>{!! __('home.info_estimate_detail') !!}</div> 
               </div>
               <div class="item">
                 <img src="{{ asset('images/ico_brain_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_cure') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque veritatis reprehenderit beatae quas sed? Ipsam provident excepturi atque ipsa debitis quam maxime, ex cupiditate veritatis et, magnam rem eos!</div>
+                <div>{!! __('home.info_cure_detail') !!}</div>
               </div>
               <div class="item">
                 <img src="{{ asset('images/ico_heart_white.svg') }}" class="icoInfo" />
                 <h3>{!! __('home.info_heal') !!}</h3>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil vel, itaque suscipit nulla nemo soluta dignissimos dolorem repellat nisi natus sequi facilis deserunt culpa excepturi eum, aliquid dolore. Quibusdam.</div>
+                <div>{!! __('home.info_heal_detail') !!}</div>
               </div>
             </div>
           </div>
@@ -252,11 +278,17 @@
   <div class="container">
     <div class="row">
       <div class="col-10 offset-1" id="player-overlay">
-        <video controls>
+        <!--video controls>
           <source src="/images/video/sample.mp4" />
           <source src="/images/video/sample.webm" type='video/webm; codecs="vp8, vorbis"' />
           <source src="/images/video/sample.ogv" type='video/ogg; codecs="theora, vorbis"' />
-        </video>
+        </video-->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dfa9s8WsiyE" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
       </div>
   </div>
 </section>
@@ -266,7 +298,7 @@
   <div class="container">
       <div class="row">
         <div class="col-8 offset-2 text-center">
-          <h2 class="colorPrimary">{{ __('home.info_article') }}</h2>
+          <h2><a href="{{ URL::to('articles') }}" class="colorPrimary">{{ __('home.info_article') }}</a></h2>
           <p class="fontSize15rem">{{ __('home.info_article_detail') }}</p>
         </div>
       </div>
@@ -348,6 +380,23 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <button type="button" class="close" data-dismiss="modal" style="position: absolute; top: 5px; right: 25px;">&times;</button>
+            <img src="{{ asset('images/coverpage.jpg') }}" class="img-responsive" width="100%" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="https://www.jqueryscript.net/demo/Minimal-3D-Image-Rotator-with-jQuery-CSS3-Cascade-Slider/cascade-slider.js"></script>
@@ -359,6 +408,18 @@
   https://www.flaticon.com/categories/arrows
 -->
 <script>
+  $(window).on('load', function() {
+    if (document.cookie.indexOf('visited=true') == -1)
+    {
+      // load the overlay
+      $('#myModal').modal({show:true});
+
+      var year = 1000*60*60*24;
+      var expires = new Date((new Date()).valueOf() + year);
+      document.cookie = "visited=true;expires=" + expires.toUTCString();
+    }
+  });
+
   jQuery(document).ready(function() {
     $('.owl-carousel').owlCarousel({
       loop:true,

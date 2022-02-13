@@ -20,7 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->integer('order_no');
             $table->string('name', 350)->charset('utf8')->nullable();
             $table->string('nickname', 80)->charset('utf8')->nullable();
-            $table->integer('license');
+            $table->integer('license')->nullable();
             $table->string('position', 350)->charset('utf8')->nullable();
             $table->string('department', 350)->charset('utf8')->nullable();
             $table->text('education')->charset('utf8')->nullable();
