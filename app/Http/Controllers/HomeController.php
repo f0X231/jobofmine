@@ -26,7 +26,7 @@ class HomeController extends Controller
         $article = Articles::where([   ['is_home', '=', 'Y'], 
                                         ['is_active', '=', 'Y'], 
                                         ['is_delete', '=', 'N'] ])
-                                ->orderBy('order_no', 'asc')
+                                ->orderBy('order_no', 'desc')
                                 ->get();
         foreach($article as $key => $service) {
             $title      = unserialize($service->title);
