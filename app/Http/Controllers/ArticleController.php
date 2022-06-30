@@ -17,7 +17,7 @@ class ArticleController extends Controller
         $services = parent::getListOfServices();
 
         $data = array();
-        $results = Articles::orderBy('order_no', 'asc')->get();
+        $results = Articles::orderBy('order_no', 'desc')->get();
         foreach($results as $key => $items) {
             $title      = unserialize($items->title);
             $slugTH     = $this->make_slug($title['th']);

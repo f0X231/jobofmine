@@ -44,6 +44,7 @@ use App\Http\Controllers\Cms\GroupController as CMSGroupController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('index', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index']);
+Route::get('privacy-policy', [HomeController::class, 'policy']);
 Route::get('aboutus', [AboutusController::class, 'index']);
 Route::get('doctor', [DoctorController::class, 'index']);
 Route::get('doctor/{id}/{name}', [DoctorController::class, 'profile']);
