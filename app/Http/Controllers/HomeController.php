@@ -59,4 +59,27 @@ class HomeController extends Controller
     private function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
     }
+
+    public function policy()
+    {
+        // Get Banner
+        $banner = parent::getBanner('home');
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+        // Set SEO
+        $seo = parent::getSEO(  'หน้าแรก', 
+                                'คลินิก JOY OF MINDS ซึ่งเป็นการรวมตัวกันของแพทย์ที่เชี่ยวชาญด้านจิตเวช คอยรับฟังและแก้ไขปัญหาไปพร้อมกับคุณ', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'privacy-policy'    );
+
+        return view('pages.policy', [   'seo'       => $seo,
+                                        'doctor'    => $doctor, 
+                                        'services'  => $services,  ]);
+    }
 }

@@ -26,9 +26,9 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
         crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/fonts.css?version=5320') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css?version=5320') }}" />
-
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/fonts.css?version=5231') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css?version=5231') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/glowCookies.css?version=5231') }}" />
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
@@ -45,3 +45,32 @@
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PR8PF2T');
 </script>
 <!-- End Google Tag Manager -->
+
+<!-- Cookie Consent -->
+<script src="/js/glowCookies.js"></script>
+<script>
+    glowCookies.start('en', { 
+        style: 2,
+        analytics: 'UA-140231010-6', 
+        facebookPixel: '177588884087489',
+        hideAfterClick: true,
+        border: 'none',
+        position: 'left',
+        policyLink: 'https://www.joyofminds.com/privacy-policy',
+        customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
+        bannerDescription: 'เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ ',
+        bannerLinkText: 'นโยบายความเป็นส่วนตัว',
+        //bannerBackground: '#fff',
+        //bannerColor: '#fafafa',
+        bannerHeading: '<h2>Cookies</h2>',
+        acceptBtnText: 'ยอมรับ',
+        //acceptBtnColor: 'green',
+        //acceptBtnBackground: 'red',
+        rejectBtnText: 'ไม่ยอมรับ',
+        //rejectBtnBackground: 'lightblue',
+        //rejectBtnColor: 'blue',
+        //manageColor: 'white',
+        //manageBackground: 'blue',
+        //manageText: 'cookies text'
+    });
+</script>
