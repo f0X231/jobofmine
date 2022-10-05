@@ -61,7 +61,7 @@ class Controller extends BaseController
     public function getListOfDoctor()
     {
         $data = array();
-        $results = Doctors::where([['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+        $results = Doctors::where([['doctype', '=', 1], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
                             ->orderBy('order_no', 'asc')
                             ->get();
         foreach($results as $key => $person) {
@@ -75,6 +75,29 @@ class Controller extends BaseController
             $data[$key]['slug']         = array(
                                                 'th'    => '/doctor/'.$person->id.'/'.$slugTH,
                                                 'en'    => '/doctor/'.$person->id.'/'.$slugEN,
+                                            );
+        }
+
+        return $data;
+    }
+
+    public function getListOfPsychiatrist()
+    {
+        $data = array();
+        $results = Doctors::where([['doctype', '=', 2], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
+        foreach($results as $key => $person) {
+            $name       = unserialize($person->name);
+            $slugTH     = $this->make_slug($name['th']);
+            $slugEN     = $this->make_slug($name['en']);
+
+            $data[$key]['id']           = $person->id;
+            $data[$key]['title']        = $name;
+            $data[$key]['thumbnail']    = $person->thumbnail;
+            $data[$key]['slug']         = array(
+                                                'th'    => '/psychiatrist/'.$person->id.'/'.$slugTH,
+                                                'en'    => '/psychiatrist/'.$person->id.'/'.$slugEN,
                                             );
         }
 
@@ -102,7 +125,7 @@ class Controller extends BaseController
         return $data;
     }
 
-    protected function make_slug($string) {
+    public function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
     }
 }

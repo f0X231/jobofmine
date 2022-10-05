@@ -48,6 +48,8 @@ Route::get('privacy-policy', [HomeController::class, 'policy']);
 Route::get('aboutus', [AboutusController::class, 'index']);
 Route::get('doctor', [DoctorController::class, 'index']);
 Route::get('doctor/{id}/{name}', [DoctorController::class, 'profile']);
+Route::get('psychiatrist', [DoctorController::class, 'indexPsychiatrist']);
+Route::get('psychiatrist/{id}/{name}', [DoctorController::class, 'profilePsychiatrist']);
 Route::get('services', [ServiceController::class, 'index']);
 Route::get('services/{id}/{name}', [ServiceController::class, 'detail']);
 Route::get('articles', [ArticleController::class, 'index']);
