@@ -107,7 +107,7 @@
 					</a>
 	      		</li>
 				  <li class="nav-item">
-	        		<a class="nav-link colorBlack" href="{{ URL::to('psychiatrist') }}">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('psychologist') }}">
 						{{ __('default.nav_menu_psychiatrist') }}
 					</a>
 	      		</li>

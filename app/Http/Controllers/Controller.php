@@ -96,8 +96,8 @@ class Controller extends BaseController
             $data[$key]['title']        = $name;
             $data[$key]['thumbnail']    = $person->thumbnail;
             $data[$key]['slug']         = array(
-                                                'th'    => '/psychiatrist/'.$person->id.'/'.$slugTH,
-                                                'en'    => '/psychiatrist/'.$person->id.'/'.$slugEN,
+                                                'th'    => '/psychologist/'.$person->id.'/'.$slugTH,
+                                                'en'    => '/psychologist/'.$person->id.'/'.$slugEN,
                                             );
         }
 
