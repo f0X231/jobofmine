@@ -99,7 +99,7 @@ class ServiceController extends Controller
                                                 'doctor'    => $doctor     ]);
     }
 
-    private function make_slug($string) {
+    public function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
     }
 }
