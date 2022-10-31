@@ -29,7 +29,7 @@
         @foreach ($doctor as $item)
             <div class="col-md-4 col-sm-6 col-12 doctor__list">
                 <a href="{{$item['slug']['th']}}">
-                    <div><img src="{{$item['thumbnail']}}" width="100%" /></div>
+                    <div><img src="{{$item['thumbnail']}}?ver=123" width="100%" /></div>
                     <p class="doctor__name text-center fontSize15rem colorPrimary">{{$item['title']['th']}}</p>
                 </a>
             </div>

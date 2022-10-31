@@ -41,7 +41,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-5 col-12 doctor__main">
-            <img src="{{$data['picture']}}" class="objectFitcover" height="460" width="100%" />
+            <img src="{{$data['picture']}}?ver=123" class="objectFitcover" height="460" width="100%" />
         </div>
         <div class="col-sm-7 col-12 doctor__main">
             <h1 class="fontSize3rem colorPrimary">{{$data['name']['th']}}</h1>
