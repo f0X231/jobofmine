@@ -38,6 +38,7 @@
         <div class="col-12 services__main">
             <h1 class="colorPrimary fontSize3rem">{{ __('service.service_title') }}</h1>
             <p class="fontSize15rem">{{ __('service.service_detail') }}</p>
+            <p class="fontSize15rem">{!! __('service.service_option') !!}</p>
         </div>
     </div>
 
