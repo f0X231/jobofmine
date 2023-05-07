@@ -17,7 +17,7 @@ return [
     'contact_title_1'       => 'OUR ADDRESS',
     'contact_title_2'       => 'CONTACT INFO',
     'contact_title_3'       => 'GALLERY',
-    'contact_address'       => '211/1 D อ.อโศกทาวเวอร์ สุขุมวิท21 คลองเตยเหนือ วัฒนา กรุงเทพมหานคร 10110',
+    'contact_address'       => '217/16 ห้องย่อยที่4 ถนนสุขุมวิท21 (อโศก) แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพ 10110',
     'contact_contact_mail'  => 'Main E-mail : <a href="mailto:joyofminds@gmail.com">joyofminds@gmail.com<a/>',
     'contact_contact_phone' => 'Phone : <a href="tel:+66909599304">090 959 9304</a>',
     'contact_gallery_txt'   => 'Restore your mind with our comfortable facility',
