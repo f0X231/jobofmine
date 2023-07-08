@@ -104,6 +104,29 @@ class Controller extends BaseController
         return $data;
     }
 
+    public function getListOfOccupational()
+    {
+        $data = array();
+        $results = Doctors::where([['doctype', '=', 3], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])
+                            ->orderBy('order_no', 'asc')
+                            ->get();
+        foreach($results as $key => $person) {
+            $name       = unserialize($person->name);
+            $slugTH     = $this->make_slug($name['th']);
+            $slugEN     = $this->make_slug($name['en']);
+
+            $data[$key]['id']           = $person->id;
+            $data[$key]['title']        = $name;
+            $data[$key]['thumbnail']    = $person->thumbnail;
+            $data[$key]['slug']         = array(
+                                                'th'    => '/occupational-therapist/'.$person->id.'/'.$slugTH,
+                                                'en'    => '/occupational-therapist/'.$person->id.'/'.$slugEN,
+                                            );
+        }
+
+        return $data;
+    }
+
     public function getListOfServices() 
     {
         $data = array();

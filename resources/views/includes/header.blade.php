@@ -106,9 +106,14 @@
 						{{ __('default.nav_menu_doctor') }}
 					</a>
 	      		</li>
-				  <li class="nav-item">
+				<li class="nav-item">
 	        		<a class="nav-link colorBlack" href="{{ URL::to('psychologist') }}">
 						{{ __('default.nav_menu_psychiatrist') }}
+					</a>
+	      		</li>
+				  <li class="nav-item">
+	        		<a class="nav-link colorBlack" href="{{ URL::to('occupational-therapist') }}">
+						{{ __('default.nav_menu_occupational') }}
 					</a>
 	      		</li>
 	      		<li class="nav-item">

@@ -79,7 +79,7 @@
         <div class="col-12 fontSize125rem text-center">
             <br />
             <br />
-            <a href="{{ URL::to('psychologist') }}">
+            <a href="{{ URL::to('occupational-therapist') }}">
               <b>
                 <img src="{{ asset('images/back.svg') }}" class="icoNavbar" /> {{ __('doctor.txt_goback') }}
               </b>

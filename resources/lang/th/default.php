@@ -12,6 +12,7 @@ return [
     'nav_menu_articles'         => 'Articles',
     'nav_menu_doctor'           => 'Doctor',
     'nav_menu_psychiatrist'     => 'Psychologist',
+    'nav_menu_occupational'     => 'Occupational-Therapist',
     'nav_menu_services'         => 'Services',
     'nav_menu_contact'          => 'Contact',
     'nav_menu_search'           => 'Search',
