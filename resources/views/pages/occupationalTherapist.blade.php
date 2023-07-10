@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 doctor__main">
-            <h1 class="colorPrimary fontSize3rem">{{ __('doctor.title2') }}</h1>
+            <h1 class="colorPrimary fontSize3rem">{{ __('doctor.title3') }}</h1>
             <p class="fontSize15rem">{{ __('doctor.detail') }}</p>
         </div>
     </div>
