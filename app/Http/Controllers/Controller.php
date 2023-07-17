@@ -18,7 +18,7 @@ class Controller extends BaseController
     public function getSEO( $title=null, $descriptions=null, $keywords=null, $images=null, $uri=null, $type=null) 
     {
         $seo = $seo = array(
-                            'title'         => empty($title)?'JOY OF MINDS by Masterwork clinic':'JOY OF MINDS by Masterwork clinic - ' . $title,
+                            'title'         => empty($title)?'JOY OF MINDS':'JOY OF MINDS - ' . $title,
                             'descriptions'  => empty($descriptions)?'JOY OF MINDS by Masterwork clinic ทีมแพทย์ผู้เชี่ยวชาญด้านการดูแลรักษาปัญหาด้านสุขภาพจิตโดยเฉพาะ':$descriptions,
                             'keywords'      => empty($keywords)?'JOY OF MINDS,รักษาปัญหาด้านสุขภาพจิตโดยเฉพาะ, ผู้เชี่ยวชาญด้านการดูแลรักษาปัญหาด้านสุขภาพจิต':'JOY OF MINDS,รักษาปัญหาด้านสุขภาพจิตโดยเฉพาะ, ผู้เชี่ยวชาญด้านการดูแลรักษาปัญหาด้านสุขภาพจิต, '.$keywords,
                             'images'        => empty($images)?'http://joyofminds.com/images/banner/banner_home_01.jpg':$images,
