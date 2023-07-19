@@ -120,6 +120,6 @@
   attribution=setup_tool
   page_id="114214706998927"
 theme_color="#5dc9c9"
-logged_in_greeting="Joy of minds by masterwork clinic. สวัสดีค่ะ หากท่านมีข้อสงสัยใดสามารถสอบถามได้ ทางเราจะรีบตอบกลับโดยเร็วที่สุดค่ะ"
-logged_out_greeting="Joy of minds by masterwork clinic. ขอบคุณสำหรับการติดต่อค่ะ">
+logged_in_greeting="Joy of minds สวัสดีค่ะ หากท่านมีข้อสงสัยใดสามารถสอบถามได้ ทางเราจะรีบตอบกลับโดยเร็วที่สุดค่ะ"
+logged_out_greeting="Joy of minds ขอบคุณสำหรับการติดต่อค่ะ">
 </div>
