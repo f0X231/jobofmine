@@ -101,6 +101,11 @@
 					  {{ __('default.nav_menu_services') }}
 				  </a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link colorBlack" href="{{ URL::to('employee-program') }}">
+						{{ __('default.nav_menu_ep') }}
+					</a>
+				  </li>
 	      		<li class="nav-item">
 	        		<a class="nav-link colorBlack" href="{{ URL::to('doctor') }}">
 						{{ __('default.nav_menu_doctor') }}

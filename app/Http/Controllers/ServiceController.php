@@ -23,7 +23,7 @@ class ServiceController extends Controller
 
         // Get list of Services
         $data = array();
-        $servicess = Services::orderBy('order_no', 'asc')->get();
+        $servicess = Services::where('is_active', 'Y')->orderBy('order_no', 'asc')->get();
         foreach($servicess as $key => $service) {
             $title      = unserialize($service->title);
             $slugTH     = $this->make_slug($title['th']);

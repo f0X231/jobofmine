@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\EmployeeController;
 /* CMS Controller */
 use App\Http\Controllers\Cms\DashboardController;
 use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
@@ -41,21 +42,23 @@ use App\Http\Controllers\Cms\GroupController as CMSGroupController;
 
 
 /* fontend Route */
-Route::get('/', [HomeController::class, 'index']);
-Route::get('index', [HomeController::class, 'index']);
-Route::get('home', [HomeController::class, 'index']);
-Route::get('privacy-policy', [HomeController::class, 'policy']);
-Route::get('aboutus', [AboutusController::class, 'index']);
-Route::get('doctor', [DoctorController::class, 'index']);
-Route::get('doctor/{id}/{name}', [DoctorController::class, 'profile']);
-Route::get('psychologist', [DoctorController::class, 'indexPsychiatrist']);
-Route::get('psychologist/{id}/{name}', [DoctorController::class, 'profilePsychiatrist']);
-Route::get('occupational-therapist', [DoctorController::class, 'indexOccupational']);
-Route::get('occupational-therapist/{id}/{name}', [DoctorController::class, 'profileOccupational']);
-Route::get('services', [ServiceController::class, 'index']);
-Route::get('services/{id}/{name}', [ServiceController::class, 'detail']);
-Route::get('articles', [ArticleController::class, 'index']);
-Route::get('articles/{id}/{name}', [ArticleController::class, 'detail']);
+Route::get('/',                                     [HomeController::class, 'index']);
+Route::get('index',                                 [HomeController::class, 'index']);
+Route::get('home',                                  [HomeController::class, 'index']);
+Route::get('privacy-policy',                        [HomeController::class, 'policy']);
+Route::get('aboutus',                               [AboutusController::class, 'index']);
+Route::get('doctor',                                [DoctorController::class, 'index']);
+Route::get('doctor/{id}/{name}',                    [DoctorController::class, 'profile']);
+Route::get('psychologist',                          [DoctorController::class, 'indexPsychiatrist']);
+Route::get('psychologist/{id}/{name}',              [DoctorController::class, 'profilePsychiatrist']);
+Route::get('occupational-therapist',                [DoctorController::class, 'indexOccupational']);
+Route::get('occupational-therapist/{id}/{name}',    [DoctorController::class, 'profileOccupational']);
+Route::get('employee-program',                      [EmployeeController::class, 'index']);
+Route::get('employee-program/{id}/{name}',          [EmployeeController::class, 'detail']);
+Route::get('services',                              [ServiceController::class, 'index']);
+Route::get('services/{id}/{name}',                  [ServiceController::class, 'detail']);
+Route::get('articles',                              [ArticleController::class, 'index']);
+Route::get('articles/{id}/{name}',                  [ArticleController::class, 'detail']);
 /* Login to system. */
 /* CMS */
 Route::prefix('cms')->group(function() {

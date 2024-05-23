@@ -7,5 +7,6 @@ return [
     'service_article01' => 'บริการทดสอบทางจิตวิทยา',
     'service_article02' => 'บริการให้คำปรึกษาและทำจิตบำบัด',
     'service_article03' => 'บริการกิจกรรมบำบัด',
+    'service_article04' => 'บริการด้านสุขภาพจิตองค์กร',
     'txt_goback'        => 'GO BACK',
 ];
