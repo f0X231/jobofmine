@@ -116,11 +116,11 @@
 						{{ __('default.nav_menu_psychiatrist') }}
 					</a>
 	      		</li>
-				  <li class="nav-item">
+				{{-- <li class="nav-item">
 	        		<a class="nav-link colorBlack" href="{{ URL::to('occupational-therapist') }}">
 						{{ __('default.nav_menu_occupational') }}
 					</a>
-	      		</li>
+	      		</li> --}}
 	      		<li class="nav-item">
 	        		<a class="nav-link colorBlack" href="{{ URL::to('articles') }}">
 						{{ __('default.nav_menu_articles') }}

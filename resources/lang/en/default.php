@@ -16,7 +16,7 @@ return [
     'nav_menu_services'         => 'Services',
     'nav_menu_contact'          => 'Contact',
     'nav_menu_search'           => 'Search',
-    'nav_menu_ep'               => 'Employee Program',
+    'nav_menu_ep'               => 'Organization Program',
 
     'footer_header_home'        => 'HOME',
     'footer_header_aboutus'     => 'ABOUT US',
