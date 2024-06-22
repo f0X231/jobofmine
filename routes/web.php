@@ -53,8 +53,8 @@ Route::get('psychologist',                          [DoctorController::class, 'i
 Route::get('psychologist/{id}/{name}',              [DoctorController::class, 'profilePsychiatrist']);
 Route::get('occupational-therapist',                [DoctorController::class, 'indexOccupational']);
 Route::get('occupational-therapist/{id}/{name}',    [DoctorController::class, 'profileOccupational']);
-Route::get('employee-program',                      [EmployeeController::class, 'index']);
-Route::get('employee-program/{id}/{name}',          [EmployeeController::class, 'detail']);
+// Route::get('employee-program',                      [EmployeeController::class, 'index']);
+// Route::get('employee-program/{id}/{name}',          [EmployeeController::class, 'detail']);
 Route::get('services',                              [ServiceController::class, 'index']);
 Route::get('services/{id}/{name}',                  [ServiceController::class, 'detail']);
 Route::get('articles',                              [ArticleController::class, 'index']);
