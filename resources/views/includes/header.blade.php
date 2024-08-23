@@ -102,6 +102,11 @@
 				  </a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link colorBlack" href="{{ URL::to('pain-management') }}">
+						{{ __('default.nav_menu_pmanagement') }}
+					</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link colorBlack" href="{{ URL::to('employee-program') }}">
 						{{ __('default.nav_menu_ep') }}
 					</a>

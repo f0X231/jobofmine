@@ -17,6 +17,7 @@ return [
     'nav_menu_contact'          => 'Contact',
     'nav_menu_search'           => 'Search',
     'nav_menu_ep'               => 'Organization Program',
+    'nav_menu_pmanagement'      => 'Pain Management',
 
     'footer_header_home'        => 'HOME',
     'footer_header_aboutus'     => 'ABOUT US',

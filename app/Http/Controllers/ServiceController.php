@@ -102,4 +102,29 @@ class ServiceController extends Controller
     public function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
     }
+
+    public function indexPainManagement()
+    {
+        // Get Banner
+        $id = 0;
+        $banner = parent::getBanner('pmanagement', $id);
+
+        // Get Doctor
+        $doctor = parent::getListOfDoctor();
+
+        // Get Services
+        $services = parent::getListOfServices();
+
+
+        $seo = parent::getSEO(  'services', 
+                                'คุณจะได้พูดคุยเล่าเรื่องราวต่างๆ หรือปรึกษาปัญหาที่มีอยู่ในบรรยากาศที่อบอุ่น โดยแพทย์ผู้เชี่ยวชาญด้านสุขภาพจิตที่พร้อมเป็นเพื่อนที่รับฟังไปกับคุณ เน้นการพูดคุย ทำความเข้าใจ และหาทางแก้ปัญหาไปพร้อมกัน สถานที่ตั้งอยู่ใจกลางเมือง ศูนย์กลางการทำงานของชาวกรุงเทพ เดินทางมาพูดคุยกันได้อย่างสะดวกสบาย', 
+                                'คลินิก JOY OF MINDS, แพทย์ที่เชี่ยวชาญด้านจิตเวช, services, บริการ', 
+                                config('global.sitename').$banner[0]['image']['th'],
+                                config('global.sitename').'services'    );
+
+        return view('pages.painmanagement', [  'seo'       => $seo,
+                                                'banner'    => $banner,
+                                                'services'  => $services,
+                                                'doctor'    => $doctor       ]);
+    }
 }

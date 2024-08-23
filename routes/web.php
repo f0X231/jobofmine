@@ -57,6 +57,7 @@ Route::get('employee-program',                      [EmployeeController::class, 
 Route::get('employee-program/{id}/{name}',          [EmployeeController::class, 'detail']);
 Route::get('services',                              [ServiceController::class, 'index']);
 Route::get('services/{id}/{name}',                  [ServiceController::class, 'detail']);
+Route::get('pain-management',                       [ServiceController::class, 'indexPainManagement']);
 Route::get('articles',                              [ArticleController::class, 'index']);
 Route::get('articles/{id}/{name}',                  [ArticleController::class, 'detail']);
 /* Login to system. */
