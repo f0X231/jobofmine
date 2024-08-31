@@ -381,7 +381,7 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+{{-- <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -395,7 +395,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
@@ -412,7 +412,7 @@
     if (document.cookie.indexOf('visited=true') == -1)
     {
       // load the overlay
-      $('#myModal').modal({show:true});
+      // $('#myModal').modal({show:true});
 
       var year = 1000*60*60*24;
       var expires = new Date((new Date()).valueOf() + year);
