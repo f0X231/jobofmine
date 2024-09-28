@@ -339,7 +339,7 @@
             <div class="col-sm-4 col-12 text-center home__contact__box">
               <img src="{{ asset('images/ico_map_pin.svg') }}" class="icoInfo" />
               <h4>{{ __('home.contact_title_1') }}</h4>
-              <div class="home__contact__box_info">{{ __('home.contact_address') }}</div>
+              <div class="home__contact__box_info">{!! __('home.contact_address') !!}</div>
               <br />
               <div class="fontSize15rem">
                 <a href="https://www.google.com/maps?saddr=Current+Location&daddr=13.745728917160257,100.56217863046466" target="_blank">

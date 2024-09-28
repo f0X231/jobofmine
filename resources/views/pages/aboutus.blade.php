@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-12 aboutus__main">
           <h1 class="fontSize2rem">{{ __('aboutus.aboutus_title') }}</h1>
-          <p class="fontSize15rem">{{ __('aboutus.aboutus_detail') }}</p>
+          <p class="fontSize15rem">{!! __('aboutus.aboutus_detail') !!}</p>
       </div>
     </div>
   </div>
@@ -88,13 +88,14 @@
       <p class="fontSize15rem">{{ __('aboutus.vision_detail') }}</p>
       <br />
       <h3>{{ __('aboutus.mission_title') }}</h3>
-      <p>
+      <p class="fontSize15rem">{{ __('aboutus.mission_title_1') }}</p>
+      {{-- <p>
         <ul class="dashStyle">
             <li class="fontSize15rem">{{ __('aboutus.mission_title_1') }}</li>
             <li class="fontSize15rem">{{ __('aboutus.mission_title_2') }}</li>
             <li class="fontSize15rem">{{ __('aboutus.mission_title_3') }}</li>
         </ul>
-      </p>
+      </p> --}}
     </div>
   </div>
 </div>

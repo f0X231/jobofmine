@@ -7,6 +7,10 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\EmployeeController;
+
+/* Authentication */
+use App\Http\Controllers\Authen\AuthenticationController as AuthenController;
+
 /* CMS Controller */
 use App\Http\Controllers\Cms\DashboardController;
 use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
@@ -60,39 +64,47 @@ Route::get('services/{id}/{name}',                  [ServiceController::class, '
 Route::get('pain-management',                       [ServiceController::class, 'indexPainManagement']);
 Route::get('articles',                              [ArticleController::class, 'index']);
 Route::get('articles/{id}/{name}',                  [ArticleController::class, 'detail']);
-/* Login to system. */
+
+
+/* Authentication: Login to system. */
+Route::get('/login',                [AuthenController::class, 'index']);
+Route::post('/authentication',      [AuthenController::class, 'authenLogin']); 
+Route::get('/forgot-password',      [AuthenController::class, 'forgotPassword']);
+Route::post('/reset-password',      [AuthenController::class, 'resetPassword']);
+Route::get('/new-password',         [AuthenController::class, 'setNewPassword']);
+Route::post('/save-new-password',   [AuthenController::class, 'saveNesPassword']);
+Route::get('/logout',               [AuthenController::class, 'logout']);
+
+
 /* CMS */
 Route::prefix('cms')->group(function() {
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::get('index', [DashboardController::class, 'index']);
-    Route::get('home', [DashboardController::class, 'index']);
+    Route::get('/',         [DashboardController::class, 'index']);
+    Route::get('index',     [DashboardController::class, 'index']);
+    Route::get('home',      [DashboardController::class, 'index']);
 
-    Route::get('users', [CMSUserController::class, 'index']);
-    Route::get('users/add', [CMSUserController::class, 'actionAdd']);
-    Route::get('users/edit/{id}/{name}', [CMSUserController::class, 'actionEdit']);
+    Route::get('users',                     [CMSUserController::class, 'index']);
+    Route::get('users/add',                 [CMSUserController::class, 'actionAdd']);
+    Route::get('users/edit/{id}/{name}',    [CMSUserController::class, 'actionEdit']);
 
-    Route::get('groups', [CMSGroupController::class, 'index']);
-    Route::get('groups/add', [CMSGroupController::class, 'actionAdd']);
-    Route::get('groups/edit/{id}/{name}', [CMSGroupController::class, 'actionEdit']);
+    Route::get('groups',                    [CMSGroupController::class, 'index']);
+    Route::get('groups/add',                [CMSGroupController::class, 'actionAdd']);
+    Route::get('groups/edit/{id}/{name}',   [CMSGroupController::class, 'actionEdit']);
 
-    Route::get('doctor', [CMSDoctorController::class, 'index']);
-    Route::get('doctor/add', [CMSDoctorController::class, 'actionAdd']);
-    Route::get('doctor/edit/{id}/{name}', [CMSDoctorController::class, 'actionEdit']);
+    Route::get('doctor',                    [CMSDoctorController::class, 'index']);
+    Route::get('doctor/add',                [CMSDoctorController::class, 'actionAdd']);
+    Route::get('doctor/edit/{id}/{name}',   [CMSDoctorController::class, 'actionEdit']);
 
-    Route::get('article', [CMSArticleController::class, 'index']);
-    Route::get('article/add', [CMSArticleController::class, 'actionAdd']);
-    Route::get('article/edit/{id}/{name}', [CMSArticleController::class, 'actionEdit']);
-    Route::post('article/save', [CMSArticleController::class, 'actionSave']);
+    Route::get('article',                   [CMSArticleController::class, 'index']);
+    Route::get('article/add',               [CMSArticleController::class, 'actionAdd']);
+    Route::get('article/edit/{id}/{name}',  [CMSArticleController::class, 'actionEdit']);
+    Route::post('article/save',             [CMSArticleController::class, 'actionSave']);
 
-    Route::get('service', [CMSServiceController::class, 'index']);
-    Route::get('service/add', [CMSServiceController::class, 'actionAdd']);
-    Route::get('service/edit/{id}/{name}', [CMSServiceController::class, 'actionEdit']);
+    Route::get('service',                   [CMSServiceController::class, 'index']);
+    Route::get('service/add',               [CMSServiceController::class, 'actionAdd']);
+    Route::get('service/edit/{id}/{name}',  [CMSServiceController::class, 'actionEdit']);
 
-    Route::get('seo', [CMSSeoController::class, 'index']);
-    Route::get('seo/add', [CMSSeoController::class, 'actionAdd']);
-    Route::get('seo/edit/{id}/{name}', [CMSSeoController::class, 'actionEdit']);
+    Route::get('seo',                       [CMSSeoController::class, 'index']);
+    Route::get('seo/add',                   [CMSSeoController::class, 'actionAdd']);
+    Route::get('seo/edit/{id}/{name}',      [CMSSeoController::class, 'actionEdit']);
 
-    Route::get('user', [CMSUserController::class, 'index']);
-    Route::get('user/add', [CMSUserController::class, 'actionAdd']);
-    Route::get('user/edit/{id}/{name}', [CMSUserController::class, 'actionEdit']);
 });

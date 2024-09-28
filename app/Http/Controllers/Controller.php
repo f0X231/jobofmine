@@ -7,6 +7,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+use Illuminate\Support\Facades\Session;
+
 use App\Models\Banner as Banner;
 use App\Models\Doctors as Doctors;
 use App\Models\Services as Services;
@@ -150,5 +152,14 @@ class Controller extends BaseController
 
     public function make_slug($string) {
         return preg_replace('/\s+/u', '-', trim($string));
+    }
+
+    public function chkSessionAuthen()
+    {
+        $getAdminInfo = Session::get('admin');
+        if(empty($getAdminInfo)) {
+            header('Location: /login');
+            exit;
+        }
     }
 }

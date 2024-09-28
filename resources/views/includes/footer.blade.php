@@ -46,11 +46,11 @@
           <h4 class="footer__middle_title">
             <a href="{{ URL::to('doctor') }}" class="colorWhite">{{ __('default.footer_header_doctors') }}</a>
           </h4>
-          <ul class="footet__list__item list-unstyled d-none d-sm-block">
+          {{-- <ul class="footet__list__item list-unstyled d-none d-sm-block">
             @foreach ($doctor as $item)
               <li><a href="{{$item['slug']['th']}}" class="colorWhite">{{$item['title']['th']}}</a></li>
             @endforeach
-          </ul>
+          </ul> --}}
         </div>
         <!--Column5-->
         <div class="col-md-3 col-sm-6 col-12">
