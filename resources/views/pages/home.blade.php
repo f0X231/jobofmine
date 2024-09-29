@@ -104,10 +104,10 @@
 
   /* MAP */
   .map-responsive{
-      overflow:hidden;
-      padding-bottom:50%;
-      position:relative;
-      height:0;
+    position:relative;
+    /* overflow:hidden;
+    padding-bottom:50%;
+    height:0; */
   }
   .map-responsive iframe{
       left:0;
@@ -118,7 +118,7 @@
   }
   /* Contact */
   .home__contact__section {
-    margin-top: -150px;
+    margin-top: 50px;
   }
   .home__contact__box {
     background-color: white;
@@ -126,6 +126,9 @@
   }
   .home__services__section {
     margin: 50px 0;
+  }
+  .home__services__box {
+    margin-top: 25px;
   }
   .home__services__box a:hover {
     color: black;
@@ -326,12 +329,14 @@
   <div class="row">
     <div class="col-12">
       <div class="map-responsive">
-        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=asoke+tower" 
+        {{-- <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=asoke+tower" 
             width="600" 
             height="450" 
             frameborder="0" 
             style="border:0" 
-            allowfullscreen></iframe>
+            allowfullscreen></iframe> --}}
+        <img src="{{ asset('images/map_desktop.jpg') }}" width="100%" class="d-none d-sm-block" />
+        <img src="{{ asset('images/map_mobile.jpg') }}" width="100%" class="d-block d-sm-none " />
       </div>
       <div id="contactus" class="row home__contact__section">
         <div class="col-10 offset-1">
