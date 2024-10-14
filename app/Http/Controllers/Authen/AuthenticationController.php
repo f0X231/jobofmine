@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Crypt;
 
-// use App\Models\User as userModel;
-// use App\Models\Logs as logsModel;
+use App\Models\Users as usersModel;
+use App\Models\Logs as logsModel;
 
 
 class AuthenticationController extends Controller
@@ -27,6 +27,7 @@ class AuthenticationController extends Controller
   {
     return view('authentications.forgot-password');
   }
+*/
 
   public function authenLogin()
   {
@@ -50,7 +51,7 @@ class AuthenticationController extends Controller
       $saveLogs->created_at = $date->format('Y-m-d H:i:s');
       $saveLogs->save();
 
-      $getUsers = userModel::where([
+      $getUsers = usersModel::where([
                     ['username', '=', $param['usernameLogin']], 
                     ['password', '=', $password], 
                     ['is_active', '=', 'Y'], 
@@ -88,6 +89,7 @@ class AuthenticationController extends Controller
     exit;
   }
 
+  /*
   public function resetPassword()
   {
     $date = new \DateTime("now", new \DateTimeZone("Asia/Bangkok"));
@@ -100,12 +102,12 @@ class AuthenticationController extends Controller
 
     if(!empty($param) && !empty($param['forgotEmail'])) 
     {
-      $getUsers = userModel::where([['email', '=', $param['forgotEmail']], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])->get()->toArray();
+      $getUsers = usersModel::where([['email', '=', $param['forgotEmail']], ['is_active', '=', 'Y'], ['is_delete', '=', 'N']])->get()->toArray();
       //print_r($getUsers); exit;
       if(count($getUsers) > 0) {
         $newPassword = substr(md5(uniqid(rand(), true)), 0, 8);
 
-        $updateUser = userModel::find($getUsers[0]['id']);
+        $updateUser = usersModel::find($getUsers[0]['id']);
         $updateUser->token = base64_encode(md5($newPassword));
         $updateUser->save();
 

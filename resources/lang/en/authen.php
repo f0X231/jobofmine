@@ -4,7 +4,7 @@ return [
 
     'login' => [
         'title' => 'Hello! let\'s get started',
-        'text' => 'Sign in to continue to Phumontra Spa',
+        'text' => 'Sign in to continue to Joy of Minds',
         'forgot' => 'Forgot Password',
         'input' => [
             'username' => [

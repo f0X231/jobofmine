@@ -82,6 +82,16 @@ Route::prefix('cms')->group(function() {
     Route::get('index',     [DashboardController::class, 'index']);
     Route::get('home',      [DashboardController::class, 'index']);
 
+    Route::group(['namespace' => '', 'prefix' => 'panorama'], function() {
+        Route::get('/',                         [Panorama::class,  'index']);
+        Route::get('/new',                      [Panorama::class,  'modify']);
+        Route::get('/modify/{slug}',            [Panorama::class,  'modify']);
+        Route::post('/process',                 [Panorama::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [Panorama::class,  'onoff']);
+        Route::get('/delete/{slug}',            [Panorama::class,  'delete']);
+        Route::post('/upload',                  [Panorama::class,  'upload']);
+    });
+
     Route::get('users',                     [CMSUserController::class, 'index']);
     Route::get('users/add',                 [CMSUserController::class, 'actionAdd']);
     Route::get('users/edit/{id}/{name}',    [CMSUserController::class, 'actionEdit']);

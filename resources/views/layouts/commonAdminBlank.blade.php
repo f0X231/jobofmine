@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Phumontra SPA Admin | @yield('title')</title>
+    <title>Joy of Minds content management system | @yield('title')</title>
     <meta name="description" content="{{ config('variables.templateDescription') ? config('variables.templateDescription') : '' }}" />
     <meta name="keywords" content="{{ config('variables.templateKeyword') ? config('variables.templateKeyword') : '' }}">
   
@@ -15,7 +15,7 @@
     <link rel="canonical" href="{{ config('variables.productPage') ? config('variables.productPage') : '' }}">
   
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}" />
 
     <!-- Include Styles -->
     @include('layouts/sections/style/stylesAdminBlank')

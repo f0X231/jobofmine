@@ -25,7 +25,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left p-5">
               <div class="brand-logo text-center">
-                <img src="/images/logo-big-circle.png" width="250">
+                <img src="/images/logo.svg" width="250">
               </div>
               <h4>@lang('authen.login.title')</h4>
               <h6 class="font-weight-light">@lang('authen.login.text')</h6>
