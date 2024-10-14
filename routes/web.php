@@ -19,6 +19,7 @@ use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
 use App\Http\Controllers\Cms\SeoController as CMSSeoController;
 use App\Http\Controllers\Cms\UserController as CMSUserController;
 use App\Http\Controllers\Cms\GroupController as CMSGroupController;
+use App\Http\Controllers\Cms\PanoController as CMSPanoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,43 +79,68 @@ Route::get('/logout',               [AuthenController::class, 'logout']);
 
 /* CMS */
 Route::prefix('cms')->group(function() {
-    Route::get('/',         [DashboardController::class, 'index']);
-    Route::get('index',     [DashboardController::class, 'index']);
-    Route::get('home',      [DashboardController::class, 'index']);
+    Route::get('/',                 [DashboardController::class, 'index']);
+    Route::post('/upload/{slug}',   [DashboardController::class,  'upload']);
 
-    Route::group(['namespace' => '', 'prefix' => 'panorama'], function() {
-        Route::get('/',                         [Panorama::class,  'index']);
-        Route::get('/new',                      [Panorama::class,  'modify']);
-        Route::get('/modify/{slug}',            [Panorama::class,  'modify']);
-        Route::post('/process',                 [Panorama::class,  'process']);
-        Route::get('/onoff/{slug}/{status}',    [Panorama::class,  'onoff']);
-        Route::get('/delete/{slug}',            [Panorama::class,  'delete']);
-        Route::post('/upload',                  [Panorama::class,  'upload']);
+    Route::group(['namespace' => '', 'prefix' => 'users'], function() {
+        Route::get('/',                         [CMSUserController::class,  'index']);
+        Route::get('/new',                      [CMSUserController::class,  'modify']);
+        Route::get('/modify/{id}/{slug}',       [CMSUserController::class,  'modify']);
+        Route::post('/process',                 [CMSUserController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSUserController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSUserController::class,  'delete']);
     });
 
-    Route::get('users',                     [CMSUserController::class, 'index']);
-    Route::get('users/add',                 [CMSUserController::class, 'actionAdd']);
-    Route::get('users/edit/{id}/{name}',    [CMSUserController::class, 'actionEdit']);
+    Route::group(['namespace' => '', 'prefix' => 'groups'], function() {
+        Route::get('/',                         [CMSGroupController::class,  'index']);
+        Route::get('/new',                      [CMSGroupController::class,  'modify']);
+        Route::get('/modify/{id}/{slug}',       [CMSGroupController::class,  'modify']);
+        Route::post('/process',                 [CMSGroupController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSGroupController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSGroupController::class,  'delete']);
+    });
 
-    Route::get('groups',                    [CMSGroupController::class, 'index']);
-    Route::get('groups/add',                [CMSGroupController::class, 'actionAdd']);
-    Route::get('groups/edit/{id}/{name}',   [CMSGroupController::class, 'actionEdit']);
+    Route::group(['namespace' => '', 'prefix' => 'panorama'], function() {
+        Route::get('/',                         [CMSPanoController::class,  'index']);
+        Route::get('/new',                      [CMSPanoController::class,  'modify']);
+        Route::get('/modify/{slug}',            [CMSPanoController::class,  'modify']);
+        Route::post('/process',                 [CMSPanoController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSPanoController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSPanoController::class,  'delete']);
+    });
 
-    Route::get('doctor',                    [CMSDoctorController::class, 'index']);
-    Route::get('doctor/add',                [CMSDoctorController::class, 'actionAdd']);
-    Route::get('doctor/edit/{id}/{name}',   [CMSDoctorController::class, 'actionEdit']);
+    Route::group(['namespace' => '', 'prefix' => 'doctor'], function() {
+        Route::get('/',                         [CMSDoctorController::class,  'index']);
+        Route::get('/new',                      [CMSDoctorController::class,  'modify']);
+        Route::get('/modify/{slug}',            [CMSDoctorController::class,  'modify']);
+        Route::post('/process',                 [CMSDoctorController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSDoctorController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSDoctorController::class,  'delete']);
+    });
 
-    Route::get('article',                   [CMSArticleController::class, 'index']);
-    Route::get('article/add',               [CMSArticleController::class, 'actionAdd']);
-    Route::get('article/edit/{id}/{name}',  [CMSArticleController::class, 'actionEdit']);
-    Route::post('article/save',             [CMSArticleController::class, 'actionSave']);
+    Route::group(['namespace' => '', 'prefix' => 'article'], function() {
+        Route::get('/',                         [CMSArticleController::class,  'index']);
+        Route::get('/new',                      [CMSArticleController::class,  'modify']);
+        Route::get('/modify/{slug}',            [CMSArticleController::class,  'modify']);
+        Route::post('/process',                 [CMSArticleController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSArticleController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSArticleController::class,  'delete']);
+    });
 
-    Route::get('service',                   [CMSServiceController::class, 'index']);
-    Route::get('service/add',               [CMSServiceController::class, 'actionAdd']);
-    Route::get('service/edit/{id}/{name}',  [CMSServiceController::class, 'actionEdit']);
+    Route::group(['namespace' => '', 'prefix' => 'service'], function() {
+        Route::get('/',                         [CMSServiceController::class,  'index']);
+        Route::get('/new',                      [CMSServiceController::class,  'modify']);
+        Route::get('/modify/{slug}',            [CMSServiceController::class,  'modify']);
+        Route::post('/process',                 [CMSServiceController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSServiceController::class,  'onoff']);
+        Route::get('/delete/{slug}',            [CMSServiceController::class,  'delete']);
+    });
 
-    Route::get('seo',                       [CMSSeoController::class, 'index']);
-    Route::get('seo/add',                   [CMSSeoController::class, 'actionAdd']);
-    Route::get('seo/edit/{id}/{name}',      [CMSSeoController::class, 'actionEdit']);
+    Route::group(['namespace' => '', 'prefix' => 'profile'], function() {
+        Route::get('/',                         [CMSServiceController::class,  'index']);
+        Route::get('/modify/{slug}',            [CMSServiceController::class,  'modify']);
+        Route::post('/process',                 [CMSServiceController::class,  'process']);
+        Route::get('/onoff/{slug}/{status}',    [CMSServiceController::class,  'onoff']);
+    });
 
 });

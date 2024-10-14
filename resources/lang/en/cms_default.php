@@ -2,18 +2,30 @@
 
 return [
     'dashboard_txt'         => 'Dashboard',
-    'nav_dashboard_name'    => 'JOY Admin',
+    'nav_dashboard_name'    => 'Joy of Minds',
 
-    'nav_list_txt'          => 'List : ',
-    'nav_group_system'      => 'SYSTEM.',
+    'nav_group_system'      => 'SYSTEMS.',
+    'nav_group_addons'      => 'ADDONS.',
+
     'nav_group_user'        => 'User Management',
+    'nav_list_txt'          => 'List : ',
     'nav_item_user'         => 'User',
     'nav_item_user_group'   => 'Groups',
+
+    'nav_group_general'     => 'MANAGEMENT.',
+    'nav_group_infomation'  => 'CONTENT MANAGEMENT',
+    'nav_item_basic_info'   => 'About us',
     'nav_item_seo'          => 'SEO',
+    'nav_item_pano'         => 'Panorama',
+    
+    'nav_group_page'        => 'PAGES',
     'nav_group_pages'       => 'PAGES MANAGEMENT',
     'nav_item_doctor'       => 'Doctor',
     'nav_item_services'     => 'Services',
     'nav_item_article'      => 'Articles',
+    'nav_item_profile'      => 'Profile',
 
-    'footer_copyright'      => 'Copyright &copy;Joyofminds 2021',
+    'nav_item_logout'       => 'Logout',
+
+    'footer_copyright'      => 'Copyright &copy;Joyofminds 2024',
 ];
