@@ -16,7 +16,7 @@ use App\Http\Controllers\Cms\DashboardController;
 use App\Http\Controllers\Cms\DoctorController as CMSDoctorController;
 use App\Http\Controllers\Cms\ArticleController as CMSArticleController;
 use App\Http\Controllers\Cms\ServiceController as CMSServiceController;
-use App\Http\Controllers\Cms\SeoController as CMSSeoController;
+// use App\Http\Controllers\Cms\SeoController as CMSSeoController;
 use App\Http\Controllers\Cms\UserController as CMSUserController;
 use App\Http\Controllers\Cms\GroupController as CMSGroupController;
 use App\Http\Controllers\Cms\PanoController as CMSPanoController;

@@ -7,7 +7,7 @@ use DateTimeZone;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Articles as Articles;
+use App\Models\Panorama as Pano;
 
 class PanoController extends Controller
 {
@@ -16,23 +16,22 @@ class PanoController extends Controller
         parent::chkSessionAuthen();
         
         $data = array();
-        $results = Articles::orderBy('order_no', 'asc')->get();
+        $results = Pano::where(['is_delete' => 'N'])->orderBy('id', 'DESC')->get();
         foreach($results as $key => $items) {
-            $title      = unserialize($items->title);
-            $slugTH     = parent::make_slug($title['th']);
-            $slugEN     = parent::make_slug($title['en']);
-
             $data[$key]['id']           = $items->id;
-            $data[$key]['title']        = $title;
-            $data[$key]['thumbnail']    = unserialize($items->thumbnail);
-            $data[$key]['slug']         = array(
-                                                'th'    => 'articles/'.$items->id.'/'.$slugTH,
-                                                'en'    => 'articles/'.$items->id.'/'.$slugEN,
-                                            );
+            $data[$key]['title']        = $items->title;
+            $data[$key]['page']         = $items->page;
+            $data[$key]['pageid']       = $items->page_id;
+            $data[$key]['filetype']     = $items->file_type;
+            $data[$key]['sourcefile']   = unserialize($items->sourcefile);
+            $data[$key]['link']         = $items->link;
+            $data[$key]['startdate']    = $items->start_date;
+            $data[$key]['enddate']      = $items->end_date;
+            $data[$key]['updatedate']   = empty($items->update_date) ? $items->end_date : $items->update_date;
             $data[$key]['status']       = $items->is_active;
         }
 
-        return view('cms.articles', ['article' => $data ]);
+        return view('cms.panorama', ['panorama' => $data ]);
     }
 
     public function actionAdd()

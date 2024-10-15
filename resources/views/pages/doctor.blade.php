@@ -1,19 +1,6 @@
-@extends('layouts.default')
+@extends('layouts.jomTemplate')
 
 @section('content')
-
-<style>
-  .doctor__main {
-    margin: 50px 0;
-  }
-  .doctor__list a {
-    color: #5dc9c9;
-  }
-  .doctor__name {
-    margin: 8px 0 50px 0;
-  }
-
-</style>
 
 @include('includes.banner')
 

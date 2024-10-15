@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.jomTemplate')
 
 @section('content')
 
@@ -6,64 +6,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
-<style>
-/* external css: flickity.css */
-.about__us {
-  padding: 25px 0;
-  margin-bottom: 50px;
-  background-color: #5dc9c9;
-  color: white;
-}
-.aboutus__main h1, .aboutus__main p {
-  margin: 0;
-}
-.dashStyle {
-  list-style-type: none;
-  padding-left: 2.5rem;
-}
-.dashStyle li:before {
-  content: "–";
-  position: absolute;
-  margin-left: -1em;
-}
-.section__gallery {
-  background-color: #ECECEC;
-  margin: 25px 0;
-  padding: 80px 0;
-}
-.flickity-viewport {
-  height: 460px;
-}
-.gallery-cell {
-  width: 60%;
-  height: 420px;
-  margin-right: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background: #000;
-  counter-increment: gallery-cell;
-  text-align: center;
-}
-.gallery-cell.is-selected {
-  height: 460px;
-  margin-top: 0px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.img-gallery {
-  object-fit: cover;
-}
-/* cell number */
-/*.gallery-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 300px;
-  font-size: 80px;
-  color: white;
-}*/
-</style>
 
 @include('includes.banner')
 
