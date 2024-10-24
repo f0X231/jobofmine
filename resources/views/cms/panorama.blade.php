@@ -2,58 +2,75 @@
 
 @section('cmscontent')
 
-<!-- DataTable -->
-<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+<!-- partial -->
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> @lang('cms_default.panorama.list.title') </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item">
+                    <a href="/cms/rooms/new">
+                        <button class="btn btn-success">@lang('cms_default.panorama.list.btn_add')</button>
+                    </a>
+                </li>
+                {{-- <li class="breadcrumb-item active" aria-current="page">@lang('dashboards.pages.room.form.basecamp.page-all')</li> --}}
+            </ol>
 
-<!-- Content -->
-<div class="row">
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-md-12">
-    <div class="card shadow">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Panorama</h6>
-      </div>
-      <table class="table table-bordered" id="dataTablePanorama" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th class="text-center">NO</th>
-            <th class="text-center">PICTURE</th>
-            <th class="text-center">TITLE</th>
-            <th class="text-center">PAGE</th>
-            <th class="text-center">START DATE</th>
-            <th class="text-center">END DATE</th>
-            <th class="text-center">UPDATE DATE</th>
-            <th class="text-center">TOOLS</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($panorama as $key => $item)
-            <tr>
-              <td class="text-center">{{($key+1)}}</td>
-              <td class="text-center">&nbsp;</td>
-              {{-- <td class="text-center"><img src="{{$item['thumbnail']}}" height="150" width="auto" /></td> --}}
-              <td>{{$item['title']}}</td>
-              <td class="text-center">{{$item['page']}}</td>
-              <td class="text-center">{{$item['startdate']}}</td>
-              <td class="text-center">{{$item['enddate']}}</td>
-              <td class="text-center">{{$item['updatedate']}}</td>
-              <td class="text-center">
-                <a href="{{ URL::to('/cms/panorama/modify', [$item['id'], $item['title']['th']]) }}">E</a>
-                <a href="{{ URL::to('/cms/panorama/delete', [$item['id'], $item['title']['th']]) }}">D</a>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+            <div class="rows breadcrumb">
+              <input type="hidden" name="_tokenCSRF" id="_tokenCSRF" value="{{ csrf_token() }}" />
+              <div class="col-12 col-md-4">
+                <div class="form-group">
+                  <label for="searchSelectPage">เลือกหน้า</label>
+                  <select class="form-control" id="searchSelectPage" name="searchSelectPage">
+                    @foreach ($searchpage as $key => $page)
+                      <option value="{{$key}}">{{$page}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="searchByText">ค้นหา</label>
+                <input type="text" class="form-control" id="searchByText" name="searchByText" aria-describedby="emailHelp" placeholder="ค้นหา">
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="button" id="btnSearchPano" name="btnSearchPano" class="btn btn-secondary mt-4" disabled>ค้นหา</button>
+              </div>
+            </div>
+        </nav>
     </div>
-  </div>
+
+    @include('cms/table/tableBorderPanorama', [
+                                            'title'       => 'Panorama Table',
+                                            'description' => 'List of all <code>PANORAMA</code> in Joy of Minds',
+                                            'panorama'    => $panorama,
+                                            'header'      => $header,
+                                            'pagination'  => $pagination
+                                        ])
 </div>
 
-<!-- DataTable -->
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#dataTablePanorama').DataTable();
+  $(document).ready(function(){
+
+    $("button").click(function(){
+      $("p").slideToggle();
+
+      $.ajax({
+        url: "url", 
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ name: 'value1', email: 'value2' }),
+        success: function (result) {
+            // when call is sucessfull
+          },
+          error: function (err) {
+          // check the err for error details
+          }
+      }); /
+
+    });
+
   });
-</script>
+<script>
+
 @endsection

@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Cms;
 
 use DateTime;
 use DateTimeZone;
+
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 use App\Models\Articles as Articles;
 
 class ArticleController extends Controller
@@ -14,6 +17,11 @@ class ArticleController extends Controller
     public function index()
     {
         parent::chkSessionAuthen();
+        $maxPerPage = 10;
+
+        $sPage = $request->get("page");
+        $page = empty($sPage) ? 1 : $sPage;
+        $skip = ($page - 1) * $maxPerPage;
         
         $data = array();
         $results = Articles::orderBy('order_no', 'asc')->get();
@@ -32,22 +40,33 @@ class ArticleController extends Controller
             $data[$key]['status']       = $items->is_active;
         }
 
+
+        $header = array(
+            'picture'       => 'PICTURE',
+            'title'         => 'TITLE',
+            'home'          => 'HOME SHOW',
+            'credit'        => 'CREDIT',
+            'update_date'   => 'UPDATE DATE',
+            'tools'         => 'TOOLS',
+        );
+        $pagination = array(
+            'total_item'    => $allDoctor,
+            'total_page'    => (empty($allDoctor) || $allDoctor <= 0) ? 0 : ceil($allDoctor / $maxPerPage),
+            'page'          => $page,
+            'item_per_page' => $maxPerPage,
+        );
+
         return view('cms.articles', ['article' => $data ]);
     }
 
-    public function actionAdd()
+    public function modify($id=0, $slug="")
     {
+        parent::chkSessionAuthen();
         return view('cms.articles_modify');
     }
-
-    public function actionEdit()
+    
+    public function process(Request $request)
     {
-        //return view('cms.articles_modify', ['article' => $article ]);
-    }
-
-    public function actionDelete()
-    {
-        
     }
 
     public function actionSave(Request $request)
@@ -122,6 +141,27 @@ class ArticleController extends Controller
         }
 
         exit;
+    }
+
+    public function onoff($id=0, $status='')
+    {
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0 && !empty($status) && in_array($status, ['on', 'off'])) {
+            $switchStatus = ($status == 'on') ? 'N' : 'Y';
+            DB::table('articles')->where('id', $id)->update(array('is_active' => $switchStatus));
+        }
+
+        return redirect('/cms/article');
+    }
+
+    public function delete($id=0)
+    {
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0) {
+            DB::table('articles')->where('id', $id)->update(array('is_delete' => 'Y'));
+        }
+
+        return redirect('/cms/article');
     }
 
     protected function random_string($length) 

@@ -15,4 +15,5 @@ class Banner extends Model
      * @var string
      */
     protected $table = 'banner';
+    protected $primaryKey = 'id';
 }

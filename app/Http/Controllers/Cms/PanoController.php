@@ -4,19 +4,37 @@ namespace App\Http\Controllers\Cms;
 
 use DateTime;
 use DateTimeZone;
+
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Panorama as Pano;
+use App\Models\Banner as Pano;
 
 class PanoController extends Controller
 {
-    public function index()
+    private $page = [
+        'article'           => 'Articles',
+        'doctor'            => 'Doctor',
+        'employee-program'  => 'Employee Program',
+        'pmanagment'        => 'Pmanagment',
+        'services'          => 'Services',
+        'home'              => 'Home',
+        'aboutus'           => 'About Us'
+    ];
+
+    public function index(Request $request)
     {
         parent::chkSessionAuthen();
+        $maxPerPage = 10;
+        
+        $sPage = $request->get("page");
+        $page = empty($sPage) ? 1 : $sPage;
+        $skip = ($page - 1) * $maxPerPage;
         
         $data = array();
-        $results = Pano::where(['is_delete' => 'N'])->orderBy('id', 'DESC')->get();
+        $allPanorama = Pano::where(['is_delete' => 'N'])->count();
+        $results = Pano::where(['is_delete' => 'N'])->orderBy('update_date', 'DESC')->orderBy('id', 'DESC')->skip($skip)->take($maxPerPage)->get();
         foreach($results as $key => $items) {
             $data[$key]['id']           = $items->id;
             $data[$key]['title']        = $items->title;
@@ -30,26 +48,60 @@ class PanoController extends Controller
             $data[$key]['updatedate']   = empty($items->update_date) ? $items->end_date : $items->update_date;
             $data[$key]['status']       = $items->is_active;
         }
+        $header = array(
+                        'no'            => 'NO',
+                        'picture'       => 'PICTURE',
+                        'title'         => 'TITLE',
+                        'page'          => 'PAGE',
+                        'start_date'    => 'START DATE',
+                        'end_date'      => 'END DATE',
+                        'update_date'   => 'UPDATE DATE',
+                        'status'        => 'STATUS',
+                        'tools'         => 'TOOLS',
+                    );
+        $pagination = array(
+            'total_item'    => $allPanorama,
+            'total_page'    => (empty($allPanorama) || $allPanorama <= 0) ? 0 : ceil($allPanorama / $maxPerPage),
+            'page'          => $page,
+            'item_per_page' => $maxPerPage,
+        );
+        $searchPage = array(
+            'article'           => 'Articles',
+            'doctor'            => 'Doctor',
+            'employee-program'  => 'Employee Program',
+            'pmanagment'        => 'Pmanagment',
+            'services'          => 'Services',
+            'home'              => 'Home',
+            'aboutus'           => 'About Us',
+        );
 
-        return view('cms.panorama', ['panorama' => $data ]);
+        return view('cms.panorama', [   'header'        => $header, 
+                                        'panorama'      => $data, 
+                                        'pagination'    => $pagination,
+                                        'searchpage'    => $searchPage
+                                    ]);
     }
 
-    public function actionAdd()
+    public function modify($id=0, $slug="")
     {
-        return view('cms.articles_modify');
+        parent::chkSessionAuthen();
+
+        $getPano = array();
+        if(!empty($id) && $id > 0) 
+        {
+            $getPanoDb = roomModel::where([['id', '=', $id], ['is_delete', '=', 'N']])->get()->toArray();
+
+            if(!empty($getPanoDb))
+                $getPano = $getPanoDb[0];
+        }
+
+        return view('cms.panorama_modify', [ 
+                                            'panorama'      => $getPano,
+                                            'searchpage'    => $this->page,
+                                        ]);
     }
 
-    public function actionEdit()
-    {
-        //return view('cms.articles_modify', ['article' => $article ]);
-    }
-
-    public function actionDelete()
-    {
-        
-    }
-
-    public function actionSave(Request $request)
+    public function process(Request $request)
     {
         /*$rules = [
                     'title_th'          => 'required|string|min:3|max:255',
@@ -121,7 +173,73 @@ class PanoController extends Controller
         }
 
         exit;
+        /* ============ */
+        parent::chkSessionAuthen();
+        $date = new \DateTime("now", new \DateTimeZone("Asia/Bangkok"));
+
+        $param = [];
+        if(!empty($_POST)) {
+            foreach ($_POST as $key => $value) {
+                $param[$key] = $value;
+            }
+        }
+
+        $processStatus = 0;
+        if(empty($param['roomInputId'])) 
+        {
+            $resRoomId = 0;
+            try{
+                $newRoom = new roomModel;
+                $newRoom->name          = $param['roomInputName'];
+                $newRoom->size          = $param['roomInputSize'];
+                $newRoom->is_active     = $param['roomInputStatus'];
+                $newRoom->is_delete     = 'N';
+                //$newRoom->created_by    = 'SYSTEM';
+                $newRoom->save();
+                $resRoomId = $newRoom->id;
+            }
+            catch(Exception $e) {
+                $processStatus = -1;
+                // return redirect('rooms')->with('failed', "operation failed");
+            }
+
+            return redirect('/cms/rooms');
+        }
+        else {
+            $updateRoom = roomModel::where('id', $param['roomInputId'])->update([
+                'name'          => $param['roomInputName'],
+                'size'          => $param['roomInputSize'],
+                'is_active'     => $param['roomInputStatus'],
+                'updated_at'    => $date->format('Y-m-d H:i:s')
+            ]);
+
+            return redirect('/cms/rooms');
+        }
+        exit;
     }
+
+    public function onoff($id=0, $status='')
+    {
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0 && !empty($status) && in_array($status, ['on', 'off'])) {
+            $switchStatus = ($status == 'on') ? 'N' : 'Y';
+            DB::table('banner')->where('id', $id)->update(array('is_active' => $switchStatus));
+        }
+
+        return redirect('/cms/panorama');
+    }
+
+    public function delete($id=0)
+    {
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0) {
+            DB::table('banner')->where('id', $id)->update(array('is_delete' => 'Y'));
+        }
+
+        return redirect('/cms/panorama');
+    }
+
+    
 
     protected function random_string($length) 
     {

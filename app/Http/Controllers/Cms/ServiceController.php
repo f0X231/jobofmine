@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Cms;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Services as Services;
@@ -34,23 +35,34 @@ class ServiceController extends Controller
         return view('cms.services', ['services' => $data ]);
     }
 
-    public function actionAdd()
+    public function modify($id=0, $slug="")
     {
-        //return view('cms.services_modify', ['services' => $article ]);
+        parent::chkSessionAuthen();
+    }
+    
+    public function process(Request $request)
+    {
     }
 
-    public function actionEdit()
+    public function onoff($id=0, $status='')
     {
-        //return view('cms.services_modify', ['services' => $article ]);
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0 && !empty($status) && in_array($status, ['on', 'off'])) {
+            $switchStatus = ($status == 'on') ? 'N' : 'Y';
+            DB::table('room')->where('id', $id)->update(array('is_active' => $switchStatus));
+        }
+
+        return redirect('/cms/rooms');
+        //return view('cms.articles_modify', ['article' => $article ]);
     }
 
-    public function actionDelete()
+    public function delete($id=0)
     {
-        
-    }
+        parent::chkSessionAuthen();
+        if(!empty($id) && $id > 0) {
+            DB::table('room')->where('id', $id)->update(array('is_delete' => 'Y'));
+        }
 
-    public function actionSave()
-    {
-        
+        return redirect('/cms/rooms');
     }
 }

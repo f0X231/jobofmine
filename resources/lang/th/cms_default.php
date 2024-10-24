@@ -33,4 +33,11 @@ return [
     'modal_logout_btn_logout'   => 'ออกจากระบบ',
 
     'footer_copyright'      => 'Copyright &copy;Joyofminds 2024',
+
+    'panorama' => [
+        'list' => [
+            'title'     => 'Panorama',
+            'btn_add'   => 'Add New Panorama',
+        ]
+    ],
 ];

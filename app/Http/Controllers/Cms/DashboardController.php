@@ -10,6 +10,6 @@ class DashboardController extends Controller
     public function index()
     {
         parent::chkSessionAuthen();
-        return view('cms.home');
+        return view('cms.dashboard');
     }
 }
